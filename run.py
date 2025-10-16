@@ -1,20 +1,25 @@
 from scraper import ArxivScraper, GoogleScholarScraper
-from semanticscholar import SemanticScholar
+from semanticscholar import SemanticScholar # API
 
 arxiv_scraper = ArxivScraper()
-categories = ["cs"]  
-MAX_RESULTS = 10
+categories = ["cs"] 
+years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]  
+MAX_RESULTS = 1
 all_papers = []
 
 # Fetch papers for each category
 for cat in categories:
-    print(f"Searching category: {cat}")
-    papers = arxiv_scraper.search_by_category(cat, max_results=MAX_RESULTS)
-    all_papers.extend(papers)
-    print(f"\tFound {len(papers)} papers in {cat}")
+    for year in years: 
+        print(f"Searching category: {cat}")
+        papers = arxiv_scraper.search_by_category(cat, year, max_results=MAX_RESULTS)
+        all_papers.extend(papers)
+        print(f"\tFound {len(papers)} papers in {cat}")
+        break
+    break
 
-ggs_scraper = GoogleScholarScraper(headless=False)
+ggs_scraper = GoogleScholarScraper(headless=False) # Please remains headless=False solve CAPTCHA
 for paper in all_papers:
+    print(paper)
     try:
         arxiv_id = paper['arxiv_id']
         ggs_res = ggs_scraper.get_paper_details(arxiv_id, include_citations_over_time=False)

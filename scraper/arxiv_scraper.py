@@ -134,25 +134,32 @@ class ArxivScraper:
         }
 
         # Regex patterns
-        submitted_pattern = re.search(r'Submitted on ([0-9]{1,2} [A-Za-z]+ [0-9]{4}) \(v(\d+)\)', raw_text)
-        revised_pattern = re.search(r'last revised ([0-9]{1,2} [A-Za-z]+ [0-9]{4}) .*v(\d+)\)', raw_text)
+        submitted_pattern = re.search(r'Submitted on (\d{1,2} [A-Za-z]+ \d{4})(?: \(v(\d+)\))?', raw_text)
+        revised_pattern = re.search(r'last revised (\d{1,2} [A-Za-z]+ \d{4}).*v(\d+)\)', raw_text)
 
         date_format = "%d %b %Y"  # e.g., "1 Jul 2025"
-
-        # Extract submission info
+        
+        # --- Published date ---
         if submitted_pattern:
-            published_date = datetime.strptime(submitted_pattern.group(1), date_format)
+            try:
+                published_date = datetime.strptime(submitted_pattern.group(1), date_format)
+            except ValueError:
+                published_date = None
             submission_info['published_date'] = published_date
-            first_version = int(submitted_pattern.group(2))
         else:
-            first_version = 1
+            published_date = None
+        first_version = 1
 
-        # Extract revision info (if exists)
+        # --- Revised date (optional) ---
         if revised_pattern:
-            last_revised_date = datetime.strptime(revised_pattern.group(1), date_format)
+            try:
+                last_revised_date = datetime.strptime(revised_pattern.group(1), date_format)
+            except ValueError:
+                last_revised_date = published_date
             last_version = int(revised_pattern.group(2))
         else:
-            last_revised_date = submission_info['published_date']
+            # No revision info -> same as published date
+            last_revised_date = published_date
             last_version = first_version
 
         submission_info['last_revised_date'] = last_revised_date

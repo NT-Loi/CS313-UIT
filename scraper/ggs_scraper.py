@@ -9,6 +9,7 @@ import time
 import random
 import re
 import logging
+from bs4 import BeautifulSoup
 
 logger = logging.getLogger("google_scholar")
 logging.basicConfig(
@@ -173,9 +174,6 @@ class GoogleScholarScraper:
                     continue
             
             if not first_result:
-                # Save screenshot for debugging
-                self.browser.save_screenshot('debug_no_results.png')
-                logging.debug("No search results. Screenshot saved as 'debug_no_results.png'")
                 return None
             
             # Extract paper information
@@ -224,19 +222,36 @@ class GoogleScholarScraper:
             # Find the author container div
             author_div = first_result.find_element(By.CLASS_NAME, 'gs_fmaa')
 
-            # Find all <a> elements inside it
-            author_links = author_div.find_elements(By.TAG_NAME, 'a')
-
             paper_info['author_profiles'] = []
 
-            for link in author_links:
-                name = link.text.strip()
-                href = link.get_attribute('href')
-                if href and 'user=' in href:  # Only Google Scholar profile links
+            # Step 1: Extract inner HTML to process both linked and unlinked authors
+            html_content = author_div.get_attribute("innerHTML")
+
+            # Step 2: Split by commas safely
+            parts = re.split(r',\s*', html_content.strip())
+
+            for part in parts:
+                part = part.strip()
+
+                # Case 1: linked author
+                if "<a" in part:
+                    try:
+                        temp_soup = BeautifulSoup(part, "html.parser")
+                        a_tag = temp_soup.find("a")
+                        name = a_tag.text.strip()
+                        href = a_tag.get("href", None)
+                    except Exception:
+                        name, href = None, None
+                else:
+                    # Case 2: plain text (no <a> tag)
+                    name = BeautifulSoup(part, "html.parser").text.strip()
+                    href = None
+                if name: 
                     paper_info['author_profiles'].append({
-                        'name': name,
-                        'url': href
+                        "name": name,
+                        "url": href
                     })
+
             
             # COMMENT: conference/journal name on scholar is inconsistent, hard to parse
             # info_div = first_result.find_element(By.CLASS_NAME, 'gs_fma_p')
@@ -244,11 +259,12 @@ class GoogleScholarScraper:
             return paper_info
             
         except TimeoutException:
+            logging.error(f"Timeout error when searching paper: {str(e)}")
             self.browser.save_screenshot('debug_timeout.png')
-            logging.debug("Timeout. Screenshot saved as 'debug_timeout.png'")
+            logging.debug("Screenshot saved as 'debug_timeout.png'")
             return None
         except Exception as e:
-            logging.info(f"✗ Error searching paper: {str(e)}")
+            logging.error(f"Error searching paper: {str(e)}")
             self.browser.save_screenshot('debug_error.png')
             logging.debug("Error. Screenshot saved as 'debug_error.png'")
             import traceback
@@ -296,7 +312,7 @@ class GoogleScholarScraper:
                     continue
             
             if not page_loaded:
-                logging.info("  ⚠ Page may not have loaded properly")
+                logging.warning("Page may not have loaded properly")
             
             # Try to find the citation graph
             graph_found = False
@@ -407,7 +423,7 @@ class GoogleScholarScraper:
             logging.info("  ✗ Timeout loading cited by page")
             return {}
         except Exception as e:
-            logging.info(f"  ✗ Error extracting citations over time: {str(e)}")
+            logging.error(f"Error extracting citations over time: {str(e)}")
             import traceback
             traceback.print_exc()
             return {}
@@ -447,16 +463,16 @@ class GoogleScholarScraper:
             
             if len(stat_values) >= 6:
                 # Row 1: Citations (All, Since 2020)
-                author_stats['citations_all'] = stat_values[0].text
-                author_stats['citations_recent'] = stat_values[1].text
+                author_stats['citations_all'] = int(stat_values[0].text)
+                author_stats['citations_recent'] = int(stat_values[1].text)
                 
                 # Row 2: h-index (All, Since 2020)
-                author_stats['h_index_all'] = stat_values[2].text
-                author_stats['h_index_recent'] = stat_values[3].text
+                author_stats['h_index_all'] = int(stat_values[2].text)
+                author_stats['h_index_recent'] = int(stat_values[3].text)
                 
                 # Row 3: i10-index (All, Since 2020)
-                author_stats['i10_index_all'] = stat_values[4].text
-                author_stats['i10_index_recent'] = stat_values[5].text
+                author_stats['i10_index_all'] = int(stat_values[4].text)
+                author_stats['i10_index_recent'] = int(stat_values[5].text)
                 
             # Close tab and return to main window
             self.browser.close()
@@ -470,7 +486,7 @@ class GoogleScholarScraper:
                 self.browser.switch_to.window(self.browser.window_handles[0])
             return {'name': author_name, 'error': 'Timeout'}
         except Exception as e:
-            logging.info(f"  ✗ Error: {str(e)}")
+            logging.error(f"Error: {str(e)}")
             if len(self.browser.window_handles) > 1:
                 self.browser.close()
                 self.browser.switch_to.window(self.browser.window_handles[0])
@@ -498,7 +514,7 @@ class GoogleScholarScraper:
         # Step 1: Search for the paper
         paper_info = self.search_paper(arxiv_id)
         if not paper_info:
-            logging.info("✗ Could not retrieve paper information")
+            logging.info("Could not retrieve paper information")
             return results
         
         # results['paper'] = paper_info
@@ -532,14 +548,16 @@ class GoogleScholarScraper:
                 # Delay between authors to avoid rate limiting
                 if idx < len(author_profiles) - 1:  # Don't delay after last author
                     self.human_like_delay(3, 6)
+
+            else: 
+                results['authors'].append({'name': author_profile['name'], 'citations_all': None, 'citations_recent': None, 
+                                           'h_index_all': 0, 'h_index_recent': None, 'i10_index_all': None, 'i10_index_recent': None})
         return results
     
     def close(self):
         """Close the browser"""
         if self.browser:
             self.browser.quit()
-            logging.info("\nBrowser closed")
-
 
 # Example usage
 if __name__ == "__main__":    
