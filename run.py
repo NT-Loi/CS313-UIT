@@ -1,4 +1,4 @@
-from scraper import ArxivScraper, GoogleScholarScraper
+from scraper import ArxivScraper, GoogleScholarScraper, HuggingFaceScraper
 from semanticscholar import SemanticScholar # API
 
 arxiv_scraper = ArxivScraper()
@@ -17,18 +17,25 @@ for cat in categories:
         break
     break
 
-ggs_scraper = GoogleScholarScraper(headless=False) # Please remains headless=False solve CAPTCHA
+hf_scraper = HuggingFaceScraper()
 for paper in all_papers:
-    # print(paper)
-    try:
-        arxiv_id = paper['arxiv_id']
-        ggs_res = ggs_scraper.get_paper_details(arxiv_id, include_citations_over_time=False)
-    except Exception as e:
-        print(f"Unexpected error: {str(e)}")
-        import traceback
-        traceback.print_exc()
-    finally:
-        ggs_scraper.close()
-    
-    paper.update(ggs_res)
+    arxiv_id = paper['arxiv_id']
+    hf_res = hf_scraper.get_paper_details(arxiv_id)
+    paper.update(hf_res)
     print(paper)
+
+# ggs_scraper = GoogleScholarScraper(headless=False) # Please remains headless=False solve CAPTCHA
+# for paper in all_papers:
+#     # print(paper)
+#     try:
+#         arxiv_id = paper['arxiv_id']
+#         ggs_res = ggs_scraper.get_paper_details(arxiv_id, include_citations_over_time=False)
+#     except Exception as e:
+#         print(f"Unexpected error: {str(e)}")
+#         import traceback
+#         traceback.print_exc()
+#     finally:
+#         ggs_scraper.close()
+    
+#     paper.update(ggs_res)
+#     print(paper)
