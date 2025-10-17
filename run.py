@@ -3,7 +3,7 @@ from semanticscholar import SemanticScholar # API
 
 arxiv_scraper = ArxivScraper()
 categories = ["cs"] 
-years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]  
+years = [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]  
 MAX_RESULTS = 1
 all_papers = []
 
@@ -19,7 +19,7 @@ for cat in categories:
 
 ggs_scraper = GoogleScholarScraper(headless=False) # Please remains headless=False solve CAPTCHA
 for paper in all_papers:
-    print(paper)
+    # print(paper)
     try:
         arxiv_id = paper['arxiv_id']
         ggs_res = ggs_scraper.get_paper_details(arxiv_id, include_citations_over_time=False)

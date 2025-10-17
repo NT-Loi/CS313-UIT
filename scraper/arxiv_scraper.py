@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import logging
-import time
 from datetime import datetime
 from typing import Dict, List, Optional
 import re

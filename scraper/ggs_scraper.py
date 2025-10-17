@@ -551,7 +551,7 @@ class GoogleScholarScraper:
 
             else: 
                 results['authors'].append({'name': author_profile['name'], 'citations_all': None, 'citations_recent': None, 
-                                           'h_index_all': 0, 'h_index_recent': None, 'i10_index_all': None, 'i10_index_recent': None})
+                                           'h_index_all': None, 'h_index_recent': None, 'i10_index_all': None, 'i10_index_recent': None})
         return results
     
     def close(self):
