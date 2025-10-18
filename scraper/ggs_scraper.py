@@ -194,7 +194,7 @@ class GoogleScholarScraper:
                 paper_info['title'] = 'N/A'
                         
             # Citations - try multiple approaches
-            paper_info['citations'] = 0
+            paper_info['citationCount'] = 0
             paper_info['cited_by_url'] = None
             
             citation_selectors = [
@@ -211,7 +211,7 @@ class GoogleScholarScraper:
                     # Extract number from text
                     numbers = re.findall(r'\d+', citations_text)
                     if numbers:
-                        paper_info['citations'] = int(numbers[0])
+                        paper_info['citationCount'] = int(numbers[0])
                     
                     paper_info['cited_by_url'] = citation_elem.get_attribute('href')
                     break
@@ -508,7 +508,7 @@ class GoogleScholarScraper:
             # 'paper': None,
             'authors': [],
             'citations_by_year': {},
-            'citations': 0
+            'citationCount': 0
         }
         
         # Step 1: Search for the paper
@@ -530,7 +530,7 @@ class GoogleScholarScraper:
             
             results['citations_by_year'] = citations_by_year
         
-        results['citations'] = paper_info['citations']
+        results['citationCount'] = paper_info['citationCount']
 
         # Step 3: Get h-index for each author with a profile
         author_profiles = paper_info.get('author_profiles', [])
