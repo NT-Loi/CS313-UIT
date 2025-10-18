@@ -16,6 +16,8 @@ logging.basicConfig(
 
 class ArxivScraper:
     def __init__(self):
+        # Initialize the scraper with base URLs and headers for HTTP requests.
+        # The headers mimic a browser to avoid being blocked by arXiv.
         self.base_url = "https://arxiv.org/abs/"
         self.search_url = "https://arxiv.org/search/"
         self.headers = {
@@ -25,13 +27,13 @@ class ArxivScraper:
     def get_paper_details(self, paper_id: str) -> Optional[Dict]:
         """
         Fetch paper details from arXiv using the paper ID.
-        
+
         Args:
-            paper_id (str): The arXiv paper ID (e.g., '2301.00001')
-            
+            paper_id (str): The arXiv paper ID (e.g., '2301.00001').
+
         Returns:
             dict: Paper details including title, authors, abstract, etc.
-                 Returns None if the paper cannot be found or an error occurs.
+                  Returns None if the paper cannot be found or an error occurs.
         """
         # try:
         url = f"{self.base_url}{paper_id}"
@@ -74,28 +76,60 @@ class ArxivScraper:
         #     return None
 
     def _get_title(self, soup: BeautifulSoup) -> str:
-        """Extract paper title from the soup object."""
+        """
+        Extract the paper title from the HTML content.
+
+        Args:
+            soup (BeautifulSoup): Parsed HTML content of the paper page.
+
+        Returns:
+            str: The title of the paper, or an empty string if not found.
+        """
         title_element = soup.find('h1', {'class': 'title mathjax'})
         if title_element:
             return title_element.text.replace('Title:', '').strip()
         return ''
 
     def _get_authors(self, soup: BeautifulSoup) -> List[str]:
-        """Extract authors list from the soup object."""
+        """
+        Extract the list of authors from the HTML content.
+
+        Args:
+            soup (BeautifulSoup): Parsed HTML content of the paper page.
+
+        Returns:
+            List[str]: A list of author names, or an empty list if not found.
+        """
         authors_div = soup.find('div', {'class': 'authors'})
         if authors_div:
             return [author.text.strip() for author in authors_div.find_all('a')]
         return []
 
     def _get_abstract(self, soup: BeautifulSoup) -> str:
-        """Extract abstract from the soup object."""
+        """
+        Extract the abstract of the paper from the HTML content.
+
+        Args:
+            soup (BeautifulSoup): Parsed HTML content of the paper page.
+
+        Returns:
+            str: The abstract of the paper, or an empty string if not found.
+        """
         abstract_element = soup.find('blockquote', {'class': 'abstract mathjax'})
         if abstract_element:
             return abstract_element.text.replace('Abstract:', '').strip()
         return ''
 
     def _get_categories(self, soup):
-        """Extract categories from the soup object."""
+        """
+        Extract the primary and additional categories of the paper.
+
+        Args:
+            soup (BeautifulSoup): Parsed HTML content of the paper page.
+
+        Returns:
+            dict: A dictionary containing the primary category and a list of all categories.
+        """
         # Look for the subjects span to get primary_category
         categories = {
             'primary_category': None,
@@ -125,7 +159,15 @@ class ArxivScraper:
         return categories
 
     def _get_submission_info(self, soup: BeautifulSoup) -> Dict[str, Optional[datetime]]:
-        """Extract submission history from the soup object."""
+        """
+        Extract submission history details, including published date, last revised date, and number of revisions.
+
+        Args:
+            soup (BeautifulSoup): Parsed HTML content of the paper page.
+
+        Returns:
+            dict: A dictionary containing submission history details.
+        """
         raw_text = soup.find('div', {'class': 'dateline'}).text
         submission_info = {
         'published_date': None,
@@ -160,16 +202,17 @@ class ArxivScraper:
 
         return submission_info
 
-    def search_by_category(self, category: str, year:int = 2020, max_results: int = 10) -> List[Dict]:
+    def search_by_category(self, category: str, year: int = 2020, max_results: int = 10) -> List[Dict]:
         """
-        Search for papers in a specific category.
-        
+        Search for papers in a specific category and year.
+
         Args:
-            category (str): arXiv category (e.g., 'cs.AI')
-            max_results (int): Maximum number of results to return
-            
+            category (str): The arXiv category (e.g., 'cs.AI').
+            year (int): The year to filter papers by (default is 2020).
+            max_results (int): Maximum number of results to return (default is 10).
+
         Returns:
-            list: List of paper details dictionaries
+            List[Dict]: A list of dictionaries containing paper details.
         """
         
         papers = []
@@ -227,7 +270,15 @@ class ArxivScraper:
         return papers
 
     def _extract_paper_id(self, result_element: BeautifulSoup) -> Optional[str]:
-        """Extract paper ID from a search result element."""
+        """
+        Extract the arXiv paper ID from a search result element.
+
+        Args:
+            result_element (BeautifulSoup): A search result element containing paper details.
+
+        Returns:
+            Optional[str]: The arXiv paper ID, or None if not found.
+        """
         # Look for the paper link
         link = result_element.find('p', {'class': 'list-title'})
         if link:
