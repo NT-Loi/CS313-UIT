@@ -229,24 +229,24 @@ class ArxivScraper:
         except Exception as e:
             return None
 
-    def search_by_category(self, category: str, year:int = 2020, max_results: int = 10) -> List[Dict]:
+    def search_by_category_year(self, category: str, year:int = 2020, max_results: int = 10) -> List[Dict]:
         """
-        Search for papers in a specific category.
+        Search for paper_ids in a specific category.
         
         Args:
             category (str): arXiv category (e.g., 'cs.AI')
             max_results (int): Maximum number of results to return
             
         Returns:
-            list: List of paper details dictionaries
+            list: List of paper_ids found
         """
         
-        papers = []
+        paper_ids = []
         start = 0
         
         logger.info(f"Starting search for category {category}, max_results={max_results}")
         
-        while len(papers) < max_results:
+        while len(paper_ids) < max_results:
             # Fixed URL format - the size parameter should be the page size, not start index
             # page_size = min(200, max_results - len(papers))
             search_url = f"{self.search_url}advanced?advanced=&terms-0-operator=AND&terms-0-term={category}&terms-0-field=all&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=specific_year&date-year={year}&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first"
@@ -269,15 +269,17 @@ class ArxivScraper:
                     break
 
                 for result in results:
-                    if len(papers) >= max_results:
+                    if len(paper_ids) >= max_results:
                         break
                         
                     paper_id = self._extract_paper_id(result)
-                    if paper_id:
-                        logger.debug(f"Processing paper {paper_id}")
-                        paper_details = self.get_paper_details(paper_id)
-                        if paper_details:
-                            papers.append(paper_details)
+                    paper_ids.append(paper_id)
+
+                    # if paper_id:
+                        # logger.debug(f"Processing paper {paper_id}")
+                        # paper_details = self.get_paper_details(paper_id)
+                        # if paper_details:
+                            # papers.append(paper_details)
                         # time.sleep(0.5)  
                 
                 # Move to next page
@@ -292,8 +294,8 @@ class ArxivScraper:
                 logger.error(f"Error searching papers: {str(e)}")
                 break
         
-        logger.info(f"Completed search for {category}. Found {len(papers)} papers")
-        return papers
+        logger.info(f"Completed search for {category}. Found {len(paper_ids)} papers")
+        return paper_ids
 
     def _extract_paper_id(self, result_element: BeautifulSoup) -> Optional[str]:
         """Extract paper ID from a search result element."""
@@ -317,7 +319,7 @@ if __name__ == "__main__":
     # Categories to crawl
     categories = ["cs.LG"]
     years = [2020]  
-    MAX_RESULTS = 1
+    MAX_RESULTS = 10
     all_papers = []
 
     # Fetch papers for each category
@@ -327,15 +329,4 @@ if __name__ == "__main__":
         all_papers.extend(papers)
         print(f"✅ Found {len(papers)} papers in {cat}")
 
-    print(f"\n{'='*60}")
-    print(f"✅ Total papers fetched: {len(all_papers)}")
-    print("="*60)
-    
-    # Display sample results
-    if all_papers:
-        print("\nSample papers:")
-        for i, paper in enumerate(all_papers[:3], 1):
-            print(f"\n{i}. {paper['title']}")
-            print(f"   ID: {paper['id']}")
-            print(f"   Authors: {', '.join(paper['authors'][:2])}{'...' if len(paper['authors']) > 2 else ''}")
-            print(f"   Published: {paper['published']}")
+    print(all_papers)
