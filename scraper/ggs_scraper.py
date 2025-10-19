@@ -315,7 +315,7 @@ class GoogleScholarScraper:
             self.browser.get(url_plot_citations_per_year)
 
             # Wait a short while for dynamic content to load
-            # self.human_like_delay(2, 4)
+            self.human_like_delay(2, 4)
             
             # Try to locate the histogram container. Google Scholar uses 'gs_md_hist' id
             try:
@@ -354,7 +354,7 @@ class GoogleScholarScraper:
             self.browser.switch_to.window(self.browser.window_handles[-1])
             
             # Wait for profile to load
-            # self.human_like_delay(3, 5)
+            self.human_like_delay(3, 5)
             
             # Check if we hit a CAPTCHA
             if self.check_captcha():
@@ -436,7 +436,7 @@ class GoogleScholarScraper:
                 
                 # Navigate back to search results
                 self.browser.back()
-                # self.human_like_delay(2, 4)
+                self.human_like_delay(2, 4)
             
             results['citations_by_year'] = citations_by_year
         
@@ -456,8 +456,8 @@ class GoogleScholarScraper:
                 results['authors'].append(author_stats)
                 
                 # Delay between authors to avoid rate limiting
-                # if idx < len(author_profiles) - 1:  # Don't delay after last author
-                    # self.human_like_delay(3, 6)
+                if idx < len(author_profiles) - 1:  # Don't delay after last author
+                    self.human_like_delay(3, 6)
 
             else: 
                 results['authors'].append({'name': author_profile['name'], 'citations_all': None, 'citations_recent': None, 
