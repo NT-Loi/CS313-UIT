@@ -36,7 +36,7 @@ class ArxivScraper:
         """
         # try:
         url = f"{self.base_url}{paper_id}"
-        response = requests.get(url, headers=self.headers, timeout=10)
+        response = requests.get(url, headers=self.headers, timeout=20)
         
         if response.status_code != 200:
             logger.error(f"Failed to fetch paper {paper_id}. Status code: {response.status_code}")
@@ -254,7 +254,7 @@ class ArxivScraper:
             logger.debug(f"Fetching URL: {search_url}")
             
             try:
-                response = requests.get(search_url, headers=self.headers, timeout=15)
+                response = requests.get(search_url, headers=self.headers, timeout=20)
                 if response.status_code != 200:
                     logger.error(f"Search failed. Status code: {response.status_code}")
                     break

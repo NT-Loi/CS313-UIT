@@ -99,7 +99,7 @@ class ScraperPipeline:
             with open(self.processing_file, 'r', encoding='utf-8') as file:
                 data = json.load(file)
                 processing = data['arxiv_id']
-            processing = processing.remove(paper_id)
+            processing.remove(paper_id)
             if processing is None:
                 os.remove(self.processing_file)
             else:
