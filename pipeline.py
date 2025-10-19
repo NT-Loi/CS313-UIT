@@ -41,8 +41,7 @@ class ScraperPipeline:
             print(f"Unexpected error: {str(e)}")
             import traceback
             traceback.print_exc()
-        finally:
-            ggs_scraper.close()
+        ggs_scraper.close()
         paper.update(ggs_res)
         
         ss_res = self.ss_scraper.get_paper_details(paper_id)
