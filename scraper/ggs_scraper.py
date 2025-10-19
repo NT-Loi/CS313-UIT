@@ -18,6 +18,41 @@ logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
+def extract_citation_data_as_dict(html: str) -> dict:
+    """
+    Trích xuất năm và số lượng trích dẫn từ mã HTML và trả về dưới dạng
+    một dictionary (year: citations).
+    
+    Args:
+        html (str): Chuỗi HTML chứa dữ liệu biểu đồ Google Scholar.
+        
+    Returns:
+        dict: Dictionary với key là năm (int) và value là số lượng trích dẫn (int).
+    """
+    soup = BeautifulSoup(html, 'html.parser')
+    
+    # Tìm tất cả các thẻ <a> chứa data-year và data-count
+    citation_elements = soup.find_all('a', class_='gs_hist_g_a')
+    
+    # Sử dụng dictionary để lưu trữ dữ liệu (Năm -> Citations)
+    citation_dict = {}
+    
+    for element in citation_elements:
+        year_str = element.get('data-year')
+        count_str = element.get('data-count')
+        
+        if year_str and count_str:
+            try:
+                # Chuyển đổi sang kiểu số nguyên
+                year = int(year_str)
+                count = int(count_str)
+                # Thêm vào dictionary
+                citation_dict[year] = count
+            except ValueError:
+                # Bỏ qua nếu giá trị không hợp lệ
+                continue
+                
+    return citation_dict
 
 class GoogleScholarScraper:
     """
@@ -282,150 +317,34 @@ class GoogleScholarScraper:
             dict: Citations per year {year: count}
         """
         try:
-            
-            # Navigate to cited by page
-            self.browser.get(cited_by_url)
-            self.human_like_delay(3, 5)
-            
-            # Check if we hit a CAPTCHA
-            if self.check_captcha():
-                logging.info("Continuing after CAPTCHA solved...")
-            
-            citations_by_year = {}
-            
-            # Wait for page to load - try multiple selectors
-            page_loaded = False
-            wait_selectors = [
-                (By.ID, 'gs_res_ccl_mid'),
-                (By.ID, 'gs_res_ccl'),
-                (By.CLASS_NAME, 'gs_r')
-            ]
-            
-            for selector_type, selector_value in wait_selectors:
-                try:
-                    WebDriverWait(self.browser, 10).until(
-                        EC.presence_of_element_located((selector_type, selector_value))
-                    )
-                    page_loaded = True
-                    break
-                except:
-                    continue
-            
-            if not page_loaded:
-                logging.warning("Page may not have loaded properly")
-            
-            # Try to find the citation graph
-            graph_found = False
-            
-            # Method 1: Look for the histogram graph (most common)
+            url_plot_citations_per_year = cited_by_url + "#d=gs_md_hist&t="
+
+            logging.info(f"Opening cited-by histogram URL: {url_plot_citations_per_year}")
+            # Open the cited-by page with the histogram fragment
+            self.browser.get(url_plot_citations_per_year)
+
+            # Wait a short while for dynamic content to load
+            self.human_like_delay(2, 4)
+
+            # Try to locate the histogram container. Google Scholar uses 'gs_md_hist' id
             try:
-                graph_container = self.browser.find_element(By.ID, 'gsc_oci_graph_bars')
-                bars = graph_container.find_elements(By.CLASS_NAME, 'gsc_oci_g_t')
-                
-                logging.info(f"  ✓ Found {len(bars)} year entries in graph")
-                
-                for bar in bars:
-                    try:
-                        # The structure is usually: <a class="gsc_oci_g_t"><span class="gsc_oci_g_al">YEAR</span></a>
-                        year_elem = bar.find_element(By.CLASS_NAME, 'gsc_oci_g_al')
-                        year = year_elem.text.strip()
-                        
-                        # Get the z-index value which represents citation count
-                        a_elem = bar.find_element(By.XPATH, './ancestor::a[@class="gsc_oci_g_t"]')
-                        
-                        # The count is in a nearby span with class gsc_oci_g_a
-                        try:
-                            count_elem = a_elem.find_element(By.CSS_SELECTOR, 'span.gsc_oci_g_a')
-                            count_text = count_elem.text.strip()
-                            
-                            if count_text and count_text.isdigit():
-                                citations_by_year[year] = int(count_text)
-                                logging.info(f"  {year}: {count_text} citations")
-                                graph_found = True
-                        except:
-                            # Try to get from z-index style
-                            style = a_elem.get_attribute('style')
-                            z_match = re.search(r'z-index:\s*(\d+)', style)
-                            if z_match:
-                                count = int(z_match.group(1))
-                                citations_by_year[year] = count
-                                logging.info(f"  {year}: {count} citations")
-                                graph_found = True
-                    except Exception as e:
-                        continue
-                
-            except NoSuchElementException:
-                logging.info("  ⚠ Citation graph not found (Method 1)")
-            except Exception as e:
-                logging.info(f"  ⚠ Error with Method 1: {str(e)}")
-            
-            # Method 2: Alternative structure
-            if not graph_found:
-                try:
-                    # Sometimes the data is in a different structure
-                    year_spans = self.browser.find_elements(By.CSS_SELECTOR, 'span.gsc_oci_g_al')
-                    
-                    for year_span in year_spans:
-                        year = year_span.text.strip()
-                        
-                        # Navigate up to find the count
-                        parent = year_span.find_element(By.XPATH, './ancestor::a')
-                        count_spans = parent.find_elements(By.CSS_SELECTOR, 'span.gsc_oci_g_a')
-                        
-                        for count_span in count_spans:
-                            count_text = count_span.text.strip()
-                            if count_text.isdigit():
-                                citations_by_year[year] = int(count_text)
-                                logging.info(f"  {year}: {count_text} citations")
-                                graph_found = True
-                                break
-                        
-                except Exception as e:
-                    logging.info(f"  ⚠ Method 2 failed: {str(e)}")
-            
-            # Method 3: Extract from JavaScript data
-            if not graph_found:
-                try:
-                    logging.info("  → Trying to extract from page source...")
-                    page_source = self.browser.page_source
-                    
-                    # Look for patterns like: [2017,150],[2018,200]
-                    pattern = r'\[(\d{4}),(\d+)\]'
-                    matches = re.findall(pattern, page_source)
-                    
-                    if matches:
-                        for year, count in matches:
-                            if 1900 < int(year) < 2100:  # Sanity check
-                                citations_by_year[year] = int(count)
-                                logging.info(f"  {year}: {count} citations")
-                        graph_found = True
-                except Exception as e:
-                    logging.info(f"  ⚠ Method 3 failed: {str(e)}")
-            
-            if not citations_by_year:
-                logging.info("\n  ✗ Could not extract citation data")
-                logging.info("  Possible reasons:")
-                logging.info("    - Paper has no citations")
-                logging.info("    - Page structure changed")
-                logging.info("    - Anti-bot detection")
-                logging.info("    - Citations not shown in graph format")
-                
-                # Save screenshot for debugging
-                self.browser.save_screenshot('debug_citations.png')
-                logging.info("  → Screenshot saved as 'debug_citations.png'")
-            else:
-                total = sum(citations_by_year.values())
-                logging.info(f"\n✓ Extracted {len(citations_by_year)} years, Total: {total} citations")
-            
-            return citations_by_year
-            
-        except TimeoutException:
-            logging.info("  ✗ Timeout loading cited by page")
-            return {}
+                hist_elem = WebDriverWait(self.browser, 10).until(
+                    EC.presence_of_element_located((By.ID, 'gs_md_hist'))
+                )
+                html = hist_elem.get_attribute('innerHTML')
+            except Exception:
+                # Fallback: use full page source
+                logging.debug('Histogram element not found; falling back to full page source')
+                html = self.browser.page_source
+
+            # Parse HTML into citation dict
+            citation_dict = extract_citation_data_as_dict(html)
+
+            logging.info(f"Extracted citation years: {sorted(citation_dict.keys())}")
+            return citation_dict
+
         except Exception as e:
-            logging.error(f"Error extracting citations over time: {str(e)}")
-            import traceback
-            traceback.print_exc()
+            logging.error(f"Error getting citations over time: {str(e)}")
             return {}
     
     def get_author_stats(self, author_url, author_name):
@@ -522,6 +441,7 @@ class GoogleScholarScraper:
         # Step 2: Get citations over time if requested
         if include_citations_over_time:
             if paper_info.get('cited_by_url'):
+                print(paper_info['cited_by_url'])
                 citations_by_year = self.get_citations_over_time(paper_info['cited_by_url'])
                 
                 # Navigate back to search results
@@ -569,7 +489,7 @@ if __name__ == "__main__":
         arxiv_id = "1706.03762"
         
         # Get paper and author information (including citations over time)
-        results = scraper.get_paper_details(arxiv_id, include_citations_over_time=False)
+        results = scraper.get_paper_details(arxiv_id, include_citations_over_time=True)
         print(results)
     finally:
         scraper.close()
