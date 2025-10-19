@@ -10,6 +10,7 @@ import random
 import re
 import logging
 from bs4 import BeautifulSoup
+from collections import defaultdict
 
 logger = logging.getLogger("google_scholar")
 logging.basicConfig(
@@ -18,6 +19,14 @@ logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
+
+def to_int(s: str) -> int:
+    # "1,234" -> 1234 ; "12 345" -> 12345
+    if s is None:
+        return None
+    s = s.replace(",", "").replace(" ", "")
+    m = re.search(r"\d+", s)
+    return int(m.group(0)) if m else None
 
 class GoogleScholarScraper:
     """
@@ -270,162 +279,175 @@ class GoogleScholarScraper:
             import traceback
             traceback.print_exc()
             return None
-    
-    def get_citations_over_time(self, cited_by_url): # FIXIT
+
+    def get_citations_over_time(self, cited_by_url: str) -> dict:
         """
-        Get citations per year from the 'Cited by' page
-        
-        Args:
-            cited_by_url: URL to the 'Cited by' page
-        
-        Returns:
-            dict: Citations per year {year: count}
+        Extract {year: citations} from Google Scholar 'Cited by' / paper view.
+        Ưu tiên con số hiển thị; fallback sang z-index khi cần.
         """
         try:
-            
-            # Navigate to cited by page
             self.browser.get(cited_by_url)
             self.human_like_delay(3, 5)
-            
-            # Check if we hit a CAPTCHA
+
+            # CAPTCHA gate
             if self.check_captcha():
                 logging.info("Continuing after CAPTCHA solved...")
-            
+
             citations_by_year = {}
-            
-            # Wait for page to load - try multiple selectors
-            page_loaded = False
+            graph_found = False
+
+            # ===== 1) Đợi trang tải (thử nhiều selector) =====
             wait_selectors = [
-                (By.ID, 'gs_res_ccl_mid'),
-                (By.ID, 'gs_res_ccl'),
-                (By.CLASS_NAME, 'gs_r')
+                (By.ID, "gs_res_ccl_mid"),
+                (By.ID, "gs_res_ccl"),
+                (By.CLASS_NAME, "gs_r"),
+                # vùng biểu đồ trong trang chi tiết bài (paper overlay)
+                (By.ID, "gsc_oci_graph_bars"),
             ]
-            
-            for selector_type, selector_value in wait_selectors:
+            page_loaded = False
+            for stype, sval in wait_selectors:
                 try:
                     WebDriverWait(self.browser, 10).until(
-                        EC.presence_of_element_located((selector_type, selector_value))
+                        EC.presence_of_element_located((stype, sval))
                     )
                     page_loaded = True
                     break
-                except:
+                except Exception:
                     continue
-            
             if not page_loaded:
-                logging.warning("Page may not have loaded properly")
-            
-            # Try to find the citation graph
-            graph_found = False
-            
-            # Method 1: Look for the histogram graph (most common)
+                logging.info(" Page may not have loaded fully; continue with best effort.")
+
+            # 2) Tìm container biểu đồ (nhiều khả năng nhất) 
+            containers = []
+            # (a) giấy/bài: overlay container
             try:
-                graph_container = self.browser.find_element(By.ID, 'gsc_oci_graph_bars')
-                bars = graph_container.find_elements(By.CLASS_NAME, 'gsc_oci_g_t')
-                
-                logging.info(f"  ✓ Found {len(bars)} year entries in graph")
-                
-                for bar in bars:
-                    try:
-                        # The structure is usually: <a class="gsc_oci_g_t"><span class="gsc_oci_g_al">YEAR</span></a>
-                        year_elem = bar.find_element(By.CLASS_NAME, 'gsc_oci_g_al')
-                        year = year_elem.text.strip()
-                        
-                        # Get the z-index value which represents citation count
-                        a_elem = bar.find_element(By.XPATH, './ancestor::a[@class="gsc_oci_g_t"]')
-                        
-                        # The count is in a nearby span with class gsc_oci_g_a
-                        try:
-                            count_elem = a_elem.find_element(By.CSS_SELECTOR, 'span.gsc_oci_g_a')
-                            count_text = count_elem.text.strip()
-                            
-                            if count_text and count_text.isdigit():
-                                citations_by_year[year] = int(count_text)
-                                logging.info(f"  {year}: {count_text} citations")
-                                graph_found = True
-                        except:
-                            # Try to get from z-index style
-                            style = a_elem.get_attribute('style')
-                            z_match = re.search(r'z-index:\s*(\d+)', style)
-                            if z_match:
-                                count = int(z_match.group(1))
-                                citations_by_year[year] = count
-                                logging.info(f"  {year}: {count} citations")
-                                graph_found = True
-                    except Exception as e:
-                        continue
-                
+                c = self.browser.find_element(By.ID, "gsc_oci_graph_bars")
+                containers.append(c)
             except NoSuchElementException:
-                logging.info("  ⚠ Citation graph not found (Method 1)")
-            except Exception as e:
-                logging.info(f"  ⚠ Error with Method 1: {str(e)}")
-            
-            # Method 2: Alternative structure
-            if not graph_found:
-                try:
-                    # Sometimes the data is in a different structure
-                    year_spans = self.browser.find_elements(By.CSS_SELECTOR, 'span.gsc_oci_g_al')
-                    
-                    for year_span in year_spans:
-                        year = year_span.text.strip()
-                        
-                        # Navigate up to find the count
-                        parent = year_span.find_element(By.XPATH, './ancestor::a')
-                        count_spans = parent.find_elements(By.CSS_SELECTOR, 'span.gsc_oci_g_a')
-                        
-                        for count_span in count_spans:
-                            count_text = count_span.text.strip()
-                            if count_text.isdigit():
-                                citations_by_year[year] = int(count_text)
-                                logging.info(f"  {year}: {count_text} citations")
-                                graph_found = True
-                                break
-                        
-                except Exception as e:
-                    logging.info(f"  ⚠ Method 2 failed: {str(e)}")
-            
-            # Method 3: Extract from JavaScript data
-            if not graph_found:
-                try:
-                    logging.info("  → Trying to extract from page source...")
-                    page_source = self.browser.page_source
-                    
-                    # Look for patterns like: [2017,150],[2018,200]
-                    pattern = r'\[(\d{4}),(\d+)\]'
-                    matches = re.findall(pattern, page_source)
-                    
-                    if matches:
-                        for year, count in matches:
-                            if 1900 < int(year) < 2100:  # Sanity check
-                                citations_by_year[year] = int(count)
-                                logging.info(f"  {year}: {count} citations")
+                pass
+
+            # (b) phương án khác: toàn bộ trang, rồi quét các anchor/cot bar
+            if not containers:
+                containers = [self.browser]  # quét rộng
+
+            #3) Quét các cột năm trong mỗi container
+            temp_map = defaultdict(int)  # year(int) -> count (lấy max nếu trùng)
+
+            for root in containers:
+                # Các anchor-bar phổ biến trong biểu đồ
+                # (class 'gsc_oci_g_t' là thẻ <a> mỗi năm; bên trong có span năm 'gsc_oci_g_al'
+                #  và thường có span số 'gsc_oci_g_a'; nếu không có, fallback style/z-index)
+                bars = root.find_elements(By.CSS_SELECTOR, "a.gsc_oci_g_t")
+                if not bars:
+                    # dự phòng: có site dùng span trực tiếp
+                    bars = root.find_elements(By.CSS_SELECTOR, ".gsc_oci_g_t, .gsc_oci_g_b, span.gsc_oci_g_al")
+
+                if bars:
+                    logging.info(f"✓ Found {len(bars)} bar-like elements")
+                else:
+                    logging.info("⚠ No bar-like elements found in this container")
+                    continue
+
+                for bar in bars:
+                    year, count = None, None
+
+                    # (1) Lấy năm từ text/span
+                    try:
+                        # phổ biến: <a class="gsc_oci_g_t"><span class="gsc_oci_g_al">2019</span>...</a>
+                        year_elem = None
+                        try:
+                            year_elem = bar.find_element(By.CLASS_NAME, "gsc_oci_g_al")
+                            year = to_int(year_elem.text.strip())
+                        except Exception:
+                            # dự phòng: nếu bar chính là span gsc_oci_g_al
+                            if bar.get_attribute("class") and "gsc_oci_g_al" in bar.get_attribute("class"):
+                                year = to_int(bar.text.strip())
+
+                        # fallback nữa: đọc aria-label nếu có
+                        if year is None:
+                            aria = bar.get_attribute("aria-label") or ""
+                            # pattern kiểu "2019: 25 citations"
+                            m = re.search(r"(19|20)\d{2}", aria)
+                            if m:
+                                year = int(m.group(0))
+                    except Exception:
+                        pass
+
+                    # (2) Lấy count hiển thị nếu có 
+                    try:
+                        # thường là <span class="gsc_oci_g_a">25</span>
+                        count_elem = None
+                        try:
+                            count_elem = bar.find_element(By.CSS_SELECTOR, "span.gsc_oci_g_a")
+                            count = to_int(count_elem.text.strip())
+                        except Exception:
+                            # đôi khi count nằm trong aria-label: "2019: 25 citations"
+                            aria = bar.get_attribute("aria-label") or ""
+                            mm = re.search(r"(\d{4}).*?(\d+)", aria)
+                            if mm:
+                                # mm.group(1)=year, group(2)=count
+                                if year is None:
+                                    y = to_int(mm.group(1))
+                                    if y:
+                                        year = y
+                                count = to_int(mm.group(2))
+                    except Exception:
+                        pass
+
+                    # (3) Fallback: z-index trong style 
+                    if count is None:
+                        style = bar.get_attribute("style") or ""
+                        # dạng "z-index: 25;" (đôi khi đặt trên phần tử con)
+                        z = re.search(r"z-index\s*:\s*(\d+)", style)
+                        if not z:
+                            # thử phần tử con hay anh em gần đó
+                            try:
+                                # cột bar bên trong (nếu có)
+                                inner = bar.find_element(By.CSS_SELECTOR, ".gsc_oci_g_b, *[style*='z-index']")
+                                style2 = inner.get_attribute("style") or ""
+                                z = re.search(r"z-index\s*:\s*(\d+)", style2)
+                            except Exception:
+                                z = None
+                        if z:
+                            count = int(z.group(1))
+
+                    # Ghi kết quả (năm hợp lệ + count >= 0)
+                    if year and (1900 < year < 2100) and (count is not None):
+                        # Một số DOM trùng năm -> lấy MAX
+                        temp_map[year] = max(temp_map[year], int(count))
                         graph_found = True
+
+            # 4) Dự phòng cuối: regex toàn trang "[2017,150]" 
+            if not graph_found:
+                try:
+                    page_source = self.browser.page_source
+                    for y, c in re.findall(r"\[(\d{4}),\s*(\d+)\]", page_source):
+                        y, c = int(y), int(c)
+                        if 1900 < y < 2100:
+                            temp_map[y] = max(temp_map[y], c)
+                    graph_found = len(temp_map) > 0
                 except Exception as e:
-                    logging.info(f"  ⚠ Method 3 failed: {str(e)}")
-            
+                    logging.info(f"Fallback regex failed: {e}")
+
+            citations_by_year = {int(y): int(temp_map[y]) for y in sorted(temp_map.keys())}
+
             if not citations_by_year:
-                logging.info("\n  ✗ Could not extract citation data")
-                logging.info("  Possible reasons:")
-                logging.info("    - Paper has no citations")
-                logging.info("    - Page structure changed")
-                logging.info("    - Anti-bot detection")
-                logging.info("    - Citations not shown in graph format")
-                
-                # Save screenshot for debugging
-                self.browser.save_screenshot('debug_citations.png')
-                logging.info("  → Screenshot saved as 'debug_citations.png'")
+                # logging.info("\n✗ Could not extract citation data.")
+                # logging.info("Possible reasons: no graph, DOM changed, anti-bot, or no citations.")
+                self.browser.save_screenshot("debug_citations.png")
+                # logging.info("→ Screenshot saved as 'debug_citations.png'")
             else:
                 total = sum(citations_by_year.values())
-                logging.info(f"\n✓ Extracted {len(citations_by_year)} years, Total: {total} citations")
-            
+                # logging.info(f"\n✓ Extracted {len(citations_by_year)} years, Total: {total} citations")
+
             return citations_by_year
-            
+
         except TimeoutException:
-            logging.info("  ✗ Timeout loading cited by page")
+            logging.info("Timeout loading cited by page")
             return {}
         except Exception as e:
-            logging.error(f"Error extracting citations over time: {str(e)}")
-            import traceback
-            traceback.print_exc()
+            logging.info(f"Error extracting citations over time: {e}")
+            import traceback; traceback.print_exc()
             return {}
     
     def get_author_stats(self, author_url, author_name):
@@ -569,7 +591,7 @@ if __name__ == "__main__":
         arxiv_id = "1706.03762"
         
         # Get paper and author information (including citations over time)
-        results = scraper.get_paper_details(arxiv_id, include_citations_over_time=False)
+        results = scraper.get_paper_details(arxiv_id, include_citations_over_time=True)
         print(results)
     finally:
         scraper.close()

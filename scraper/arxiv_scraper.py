@@ -1,9 +1,11 @@
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString
 import logging
 from datetime import datetime
 from typing import Dict, List, Optional
 import re
+import io
+from PyPDF2 import PdfReader
 
 logger = logging.getLogger("arxiv_crawler")
 logging.basicConfig(
@@ -52,6 +54,8 @@ class ArxivScraper:
         abstract = self._get_abstract(soup)
         categories = self._get_categories(soup)
         submission_info = self._get_submission_info(soup)
+        keywords = self._get_paper_keywords(paper_id)
+        num_pages_paper = self._get_paper_num_pages(paper_id)
         
         logger.info(f"Successfully fetched paper {paper_id}: {title}")
         
@@ -65,7 +69,9 @@ class ArxivScraper:
             "num_revisions": submission_info.get("num_revisions"),
             "pdf_url": f"https://arxiv.org/pdf/{paper_id}.pdf",
             "primary_category": categories.get('primary_category'),
-            "categories": categories.get('categories')
+            "categories": categories.get('categories'),
+            "keywords": keywords,
+            "num_pages": num_pages_paper
         }
             
         # except Exception as e:
@@ -166,6 +172,63 @@ class ArxivScraper:
 
         return submission_info
 
+    def _get_paper_keywords(self, paper_id: str):
+        url = f"https://arxiv.org/html/{paper_id}"
+        try:
+            res = requests.get(url)
+            res.raise_for_status()
+        except Exception:
+            return None  # Không in lỗi ra màn hình
+
+        soup = BeautifulSoup(res.text, "html.parser")
+
+        # Tìm phần chứa chữ "keywords:" (không phân biệt hoa/thường)
+        for tag in soup.find_all(string=lambda t: t and "keywords:" in t.lower()):
+            parent = tag.parent
+            if parent:
+                # Trường hợp text nằm trong cùng thẻ
+                full_text = parent.get_text(" ", strip=True)
+                if "keywords:" in full_text.lower():
+                    parts = full_text.lower().split("keywords:")
+                    if len(parts) > 1:
+                        keywords_raw = parts[-1]
+                        keywords = [kw.strip(' ".,;') for kw in keywords_raw.split(",") if kw.strip()]
+                        if keywords:
+                            return keywords
+
+                # Trường hợp text nằm kế bên trong DOM
+                next_texts = []
+                for sibling in parent.next_siblings:
+                    if isinstance(sibling, NavigableString):
+                        next_texts.append(sibling.strip())
+                    elif sibling.name not in ["button", "br"]:
+                        next_texts.append(sibling.get_text(" ", strip=True))
+                joined = " ".join(next_texts).strip()
+                if joined:
+                    keywords = [kw.strip(' ".,;') for kw in joined.split(",") if kw.strip()]
+                    if keywords:
+                        return keywords
+
+        return None  # Nếu không tìm thấy gì
+
+    def _get_paper_num_pages(self, paper_id: str) -> int:
+        """
+        Trích xuất số trang của paper từ file PDF arXiv.
+        Args:
+            paper_id (str): Mã arXiv, ví dụ '2510.14539v1'
+        Returns:
+            int: Số trang (hoặc None nếu không lấy được)
+        """
+        pdf_url = f"https://arxiv.org/pdf/{paper_id}.pdf"
+        try:
+            response = requests.get(pdf_url, timeout=20)
+            response.raise_for_status()
+            with io.BytesIO(response.content) as pdf_file:
+                reader = PdfReader(pdf_file)
+                return len(reader.pages)
+        except Exception as e:
+            return None
+
     def search_by_category(self, category: str, year:int = 2020, max_results: int = 10) -> List[Dict]:
         """
         Search for papers in a specific category.
@@ -254,7 +317,7 @@ if __name__ == "__main__":
     # Categories to crawl
     categories = ["cs.LG"]
     years = [2020]  
-    MAX_RESULTS = 30
+    MAX_RESULTS = 1
     all_papers = []
 
     # Fetch papers for each category
