@@ -1,5 +1,4 @@
 from semanticscholar import SemanticScholar
-import statistics
 
 class SemanticScholarAPI():
     def __init__(self):
@@ -9,10 +8,10 @@ class SemanticScholarAPI():
         api_res = self.scraper.get_paper(
             f'arXiv:{arxiv_id}',
             fields=["externalIds", "publicationVenue",
-                    "authors",
                     "citationCount","referenceCount","influentialCitationCount",
                     "citations.citationCount", "citations.referenceCount",
-                    "references.citationCount", "references.referenceCount"])
+                    "references.citationCount", "references.referenceCount"]
+            )
         api_res = dict(api_res)
         # return api_res
         def extract_citation_info(entry):
@@ -27,7 +26,7 @@ class SemanticScholarAPI():
         # Local references for faster attribute access
         citations = api_res.get('citations', [])
         references = api_res.get('references', [])
-        authors = api_res.get('authors', [])
+        # authors = api_res.get('authors', [])
         venue = api_res.get('publicationVenue', {}) or {}
 
         return {
@@ -43,15 +42,14 @@ class SemanticScholarAPI():
             # 'references': api_res.get('references'),
             'influentialCitationCount': api_res.get('influentialCitationCount'),
             'embedding': api_res.get('embedding'),
-            'authors': authors
+            # 'authors': authors
         }
 
 if __name__ == '__main__':
     ss_scraper = SemanticScholarAPI()
 
-    paper = ss_scraper.get_paper_details('1706.03762')
+    paper = ss_scraper.get_paper_details('2508.07049')
     # print(paper)
     import json
     with open('test.json', 'w', encoding='utf-8') as file:
         json.dump(paper, file, ensure_ascii=False, indent=4, default=str)
-        
