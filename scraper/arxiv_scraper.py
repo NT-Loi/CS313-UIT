@@ -36,7 +36,7 @@ class ArxivScraper:
         """
         # try:
         url = f"{self.base_url}{paper_id}"
-        response = requests.get(url, headers=self.headers, timeout=20)
+        response = requests.get(url, headers=self.headers, timeout=30)
         
         if response.status_code != 200:
             logger.error(f"Failed to fetch paper {paper_id}. Status code: {response.status_code}")
@@ -221,7 +221,7 @@ class ArxivScraper:
         """
         pdf_url = f"https://arxiv.org/pdf/{paper_id}.pdf"
         try:
-            response = requests.get(pdf_url, timeout=20)
+            response = requests.get(pdf_url, timeout=30)
             response.raise_for_status()
             with io.BytesIO(response.content) as pdf_file:
                 reader = PdfReader(pdf_file)
@@ -249,12 +249,12 @@ class ArxivScraper:
         while len(paper_ids) < max_results:
             # Fixed URL format - the size parameter should be the page size, not start index
             # page_size = min(200, max_results - len(papers))
-            search_url = f"{self.search_url}advanced?advanced=&terms-0-operator=AND&terms-0-term={category}&terms-0-field=all&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=specific_year&date-year={year}&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first"
+            search_url = f"{self.search_url}advanced?advanced=&terms-0-operator=AND&terms-0-term={category}&terms-0-field=all&classification-physics_archives=all&classification-include_cross_list=include&date-filter_by=specific_year&date-year={year}&date-from_date=&date-to_date=&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start={start}"
             
             logger.debug(f"Fetching URL: {search_url}")
             
             try:
-                response = requests.get(search_url, headers=self.headers, timeout=20)
+                response = requests.get(search_url, headers=self.headers, timeout=30)
                 if response.status_code != 200:
                     logger.error(f"Search failed. Status code: {response.status_code}")
                     break

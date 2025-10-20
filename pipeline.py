@@ -4,6 +4,7 @@ import json
 from datetime import datetime
 import os
 from pathlib import Path
+import re
 
 class ScraperPipeline:
     def __init__(self, output_basedir: str = 'data', num_workers: int = 4):
@@ -14,14 +15,19 @@ class ScraperPipeline:
         self.hf_scraper = HuggingFaceScraper()
         self.ss_scraper = SemanticScholarAPI()
         self.processed_file = self.output_basedir + f'/processed.json'
-        self.processing_file = self.output_basedir + f'/progressing.json'
+        self.processing_file = self.output_basedir + f'/processing.json'
 
-        if os.path.exists(self.processed_file):
-            with open(self.processed_file, 'r', encoding='utf-8') as file:
-                data = json.load(file)
-                self.existing_ids = data.get('arxiv_id', [])
-        else:
-            self.existing_ids = []
+        existing_ids = []
+        for filename in os.listdir(self.output_basedir):
+            if filename.endswith('.json'):
+                paper_id = re.match(r'(\d{4}\.\d{5})\.json', filename)
+                if paper_id:
+                    existing_ids.append(paper_id.group(1))
+        with open(self.processed_file, 'w', encoding='utf-8') as id_file:
+            json.dump({'arxiv_id': existing_ids,
+                       'timestamp': datetime.now().isoformat()}, 
+                      id_file, ensure_ascii=False, indent=4)
+        self.existing_ids = existing_ids
 
     def default_converter(self, o):
         if isinstance(o, datetime):
@@ -77,8 +83,8 @@ class ScraperPipeline:
             os.remove(self.processing_file)
             return
         
-        paper_ids = [pid for pid in paper_ids if pid not in self.existing_ids]
-
+        paper_ids = list(set(paper_ids) - set(self.existing_ids))
+        
         if not paper_ids:
             print("All paper IDs have been processed. Try increase max_results.")
             os.remove(self.processing_file)
