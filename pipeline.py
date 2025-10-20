@@ -146,5 +146,5 @@ if __name__ == '__main__':
     pipeline = ScraperPipeline()
     category = "cs" 
     year = 2017  
-    pipeline(category=category, year=year, max_results=1250)
-    # pipeline(arxiv_id="1712.03782")
+    # pipeline(category=category, year=year, max_results=1250)
+    pipeline(arxiv_id="1712.06951")
