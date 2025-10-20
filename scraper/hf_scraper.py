@@ -24,14 +24,7 @@ class HuggingFaceScraper:
         
         if response.status_code != 200:
             logger.error(f"Failed to fetch paper {paper_id}. Status code: {response.status_code}")
-            return {'arxiv_id': paper_id,
-                    'github_stars': None,
-                    'upvote': 0,
-                    'citing_models': 0,
-                    'citing_datasets': 0, 
-                    'citing_spaces': 0, 
-                    'citing_collections': 0
-                }
+            return None
         
         soup = BeautifulSoup(response.text, 'html.parser')
 

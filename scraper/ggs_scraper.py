@@ -289,7 +289,7 @@ class GoogleScholarScraper:
                 author_div = first_result.find_element(By.CLASS_NAME, 'gs_fmaa')
             except:
                 author_div = first_result.find_element(By.CLASS_NAME, 'gs_a')
-            
+
             paper_info['author_profiles'] = []
 
             # Step 1: Extract inner HTML to process both linked and unlinked authors
@@ -457,7 +457,7 @@ class GoogleScholarScraper:
         paper_info = self.search_paper(arxiv_id)
         if not paper_info:
             logging.info("Could not retrieve paper information")
-            return results
+            return None
         
         # results['paper'] = paper_info
         

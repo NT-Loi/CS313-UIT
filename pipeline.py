@@ -38,6 +38,11 @@ class ScraperPipeline:
         paper = self.arxiv_scraper.get_paper_details(paper_id)
         
         hf_res = self.hf_scraper.get_paper_details(paper_id)
+
+        if hf_res is None:
+            print(f"HuggingFaceScraper: Failed to fetch paper {paper_id}")
+            return None
+
         paper.update(hf_res)
         
         ggs_scraper = GoogleScholarScraper(headless=False)  # Please remains headless=False solve CAPTCHA
@@ -46,23 +51,32 @@ class ScraperPipeline:
             ggs_scraper.load_cookies_from_file("cookies.pkl")
         try:
             ggs_res = ggs_scraper.get_paper_details(paper_id)
+            if ggs_res is None:
+                print(f"GoogleScholarScraper: Failed to fetch paper {paper_id}")
+                return None
         except Exception as e:
             print(f"Unexpected error: {str(e)}")
             import traceback
             traceback.print_exc()
         ggs_scraper.close()
         paper.update(ggs_res)
-        
+        del ggs_scraper
+
         ss_res = self.ss_scraper.get_paper_details(paper_id)
+        if ss_res is None:
+            print(f"SemanticScholarAPI: Failed to fetch paper {paper_id}")
+            return None
         for key, value in ss_res.items():
             if key != 'authors' and key!= 'citationCount':
                 paper[key] = value
-        del ggs_scraper
         return paper
 
     def __call__(self, arxiv_id: str = None, category: str = None,  year: int = None, max_results: int = 100):
         if arxiv_id:
             paper = self.get_paper_details(arxiv_id)
+            if paper is None:
+                # print(f"Failed to fetch paper {arxiv_id}")
+                return None
             with open(self.output_basedir+f'/{arxiv_id}.json', 'w', encoding='utf-8') as file:
                 json.dump(paper, file, ensure_ascii=False, indent=4, default=self.default_converter)
             return paper
@@ -102,6 +116,9 @@ class ScraperPipeline:
 
             print(f"Processing paper ID: {paper_id}")
             paper = self.get_paper_details(paper_id)
+            if paper is None:
+                # print(f"Failed to fetch paper {paper_id}")
+                continue
 
             processing = []
             with open(self.processing_file, 'r', encoding='utf-8') as file:
@@ -129,4 +146,5 @@ if __name__ == '__main__':
     pipeline = ScraperPipeline()
     category = "cs" 
     year = 2017  
-    pipeline(category=category, year=year, max_results=1250)
+    # pipeline(category=category, year=year, max_results=1250)
+    pipeline(arxiv_id="1712.02864")
