@@ -41,6 +41,9 @@ class ScraperPipeline:
         paper.update(hf_res)
         
         ggs_scraper = GoogleScholarScraper(headless=False)  # Please remains headless=False solve CAPTCHA
+        # print(ggs_scraper.have_cookies)
+        if ggs_scraper.have_cookies == True:
+            ggs_scraper.load_cookies_from_file("cookies.pkl")
         try:
             ggs_res = ggs_scraper.get_paper_details(paper_id)
         except Exception as e:

@@ -10,6 +10,7 @@ import random
 import re
 import logging
 from bs4 import BeautifulSoup
+import os
 
 logger = logging.getLogger("google_scholar")
 logging.basicConfig(
@@ -67,6 +68,11 @@ class GoogleScholarScraper:
             headless: If True, run browser in headless mode (no visible window)
         """
         self.browser = self._setup_browser(headless)
+
+        if os.path.exists("cookies.pkl"):
+            self.have_cookies = True
+        else:
+            self.have_cookies = False
     
     def _setup_browser(self, headless):
         """Setup Chrome browser with anti-detection options"""
@@ -132,9 +138,33 @@ class GoogleScholarScraper:
             
             # Pause until user confirms solving it
             input("Press Enter after solving CAPTCHA...")
+            self.save_cookies_to_file("cookies.pkl")
+            self.have_cookies = True
             return True
-        
         return False
+
+    def save_cookies_to_file(self, filename="cookies.pkl"):
+        import pickle
+        cookies = self.browser.get_cookies()
+        with open(filename, "wb") as f:
+            pickle.dump(cookies, f)
+        # print(f"✅ Cookies đã được lưu vào file {filename}")
+
+    def load_cookies_from_file(self, filename="cookies.pkl", domain="https://scholar.google.com"):
+        import pickle, time
+        with open(filename, "rb") as f:
+            cookies = pickle.load(f)
+        self.browser.get(domain)
+        time.sleep(1)
+        for c in cookies:
+            c.pop('sameSite', None)
+            if 'expiry' in c: c['expiry'] = int(c['expiry'])  # cần int
+            try:
+                self.browser.add_cookie(c)
+            except Exception as e:
+                print(f"Lỗi add_cookie: {e}")
+        self.browser.get(domain)
+        # print(f"✅ Cookies đã load xong từ {filename}")
 
     def search_paper(self, arxiv_id):
         """
@@ -255,8 +285,11 @@ class GoogleScholarScraper:
             
             # Get author profile links
             # Find the author container div
-            author_div = first_result.find_element(By.CLASS_NAME, 'gs_fmaa')
-
+            try:
+                author_div = first_result.find_element(By.CLASS_NAME, 'gs_fmaa')
+            except:
+                author_div = first_result.find_element(By.CLASS_NAME, 'gs_a')
+            
             paper_info['author_profiles'] = []
 
             # Step 1: Extract inner HTML to process both linked and unlinked authors
