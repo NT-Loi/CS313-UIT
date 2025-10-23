@@ -20,7 +20,7 @@ class HuggingFaceScraper:
 
     def get_paper_details(self, paper_id: str) -> Optional[Dict]:
         url = f"{self.base_url}{paper_id}"
-        response = requests.get(url, headers=self.headers, timeout=20)
+        response = requests.get(url, headers=self.headers, timeout=30)
         
         if response.status_code != 200:
             logger.error(f"Failed to fetch paper {paper_id}. Status code: {response.status_code}")

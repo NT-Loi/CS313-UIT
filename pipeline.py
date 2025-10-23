@@ -35,8 +35,10 @@ class ScraperPipeline:
         raise TypeError(f"Type {type(o)} not serializable")
 
     def get_paper_details(self, paper_id: str) -> dict[str, any]:
+        print(f"Fetching paper id {paper_id} from arXiv...")
         paper = self.arxiv_scraper.get_paper_details(paper_id)
         
+        print("Fetching paper's Hugging Face profile...")
         hf_res = self.hf_scraper.get_paper_details(paper_id)
 
         if hf_res is None:
@@ -44,7 +46,8 @@ class ScraperPipeline:
             return None
 
         paper.update(hf_res)
-        
+
+        print("Fetching paper's Google Scholar profile...")
         ggs_scraper = GoogleScholarScraper(headless=False)  # Please remains headless=False solve CAPTCHA
         # print(ggs_scraper.have_cookies)
         if ggs_scraper.have_cookies == True:
@@ -62,6 +65,7 @@ class ScraperPipeline:
         paper.update(ggs_res)
         del ggs_scraper
 
+        print("Calling Semantic Scholar API...")
         ss_res = self.ss_scraper.get_paper_details(paper_id)
         if ss_res is None:
             print(f"SemanticScholarAPI: Failed to fetch paper {paper_id}")
@@ -69,6 +73,10 @@ class ScraperPipeline:
         for key, value in ss_res.items():
             if key != 'authors' and key!= 'citationCount':
                 paper[key] = value
+        
+        print(f"Finish fetching paper id {paper_id}.")
+        for key, value in paper.items():
+            print(f"{key}: {value}")
         return paper
 
     def __call__(self, arxiv_id: str = None, category: str = None,  year: int = None, max_results: int = 100):
@@ -147,4 +155,4 @@ if __name__ == '__main__':
     category = "cs" 
     year = 2017  
     pipeline(category=category, year=year, max_results=1250)
-    # pipeline(arxiv_id="1712.06951")
+    # pipeline(arxiv_id="2002.09132")
