@@ -2,6 +2,8 @@
 
 This project aims to predict the popularity of research papers by collecting and analyzing metadata from various sources, including arXiv, Google Scholar, Hugging Face, and Semantic Scholar. The pipeline automates the process of scraping, enriching, and saving paper metadata for further analysis.
 
+Dataset is available at: [Link](https://drive.google.com/drive/folders/1ZCR9uN_JuNhNj3KJ7bV3jaIl5R5-rDOt?usp=drive_link)
+
 ---
 ## I. Crawl data
 ### Features
