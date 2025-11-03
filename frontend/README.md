@@ -1,6 +1,20 @@
-## Getting Started
+## Frontend
 
-First, run the development server:
+
+Clone repo and switch to development branch:
+```bash
+git clone https://github.com/NT-Loi/CS313-UIT.git
+git checkout frontend-dev
+```
+
+Install dependencies:
+```bash
+cd frontend
+npm install
+```
+
+
+Run the development server:
 
 ```bash
 npm run dev
