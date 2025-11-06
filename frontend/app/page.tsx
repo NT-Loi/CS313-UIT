@@ -1,28 +1,29 @@
-"use client"
-import { useRouter } from "next/navigation"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { useState } from "react"
+"use client";
+import BackgroundParticles from "@/components/BackgroundParticles";
+import SearchBar from "@/components/SearchBar";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function HomePage() {
-  const [query, setQuery] = useState("")
-  const router = useRouter()
+  const router = useRouter();
 
-  const handleSearch = () => {
-    if (query.trim()) router.push(`/search?q=${encodeURIComponent(query)}`)
-  }
+  const handleSearch = (query: string) => {
+    router.push(`/search?q=${encodeURIComponent(query)}`);
+  };
 
   return (
-    <main className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-3xl font-semibold mb-6">Search for Papers</h1>
-      <div className="flex w-full max-w-lg gap-2">
-        <Input
-          placeholder="Enter paper title or keyword"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <Button onClick={handleSearch}>Search</Button>
+    <main className="relative flex flex-col items-center justify-center min-h-screen text-center">
+      <BackgroundParticles />
+
+      {/* Logo */}
+      <div className="absolute" style={{ top: 'calc(50% - 160px)', left: '50%', transform: 'translateX(-50%)' }}>
+        <Image src="/logo-slogan.svg" alt="App Logo" width={500} height={2000} />
+      </div>
+
+      {/* Search Bar */}
+      <div className="flex justify-center w-full">
+        <SearchBar onSearch={handleSearch} />
       </div>
     </main>
-  )
+  );
 }
