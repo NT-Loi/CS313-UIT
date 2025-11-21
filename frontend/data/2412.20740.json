@@ -1,0 +1,507 @@
+{
+    "arxiv_id": "2412.20740",
+    "title": "Similar but Patched Code Considered Harmful -- The Impact of Similar but Patched Code on Recurring Vulnerability Detection and How to Remove Them",
+    "authors": [
+        {
+            "name": "Z Tan",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "J Zhou",
+            "citations_all": 330,
+            "citations_recent": 328,
+            "h_index_all": 9,
+            "h_index_recent": 9,
+            "i10_index_all": 9,
+            "i10_index_recent": 9
+        },
+        {
+            "name": "X Hu",
+            "citations_all": 2941,
+            "citations_recent": 2844,
+            "h_index_all": 23,
+            "h_index_recent": 23,
+            "i10_index_all": 40,
+            "i10_index_recent": 39
+        },
+        {
+            "name": "S Pan",
+            "citations_all": 133,
+            "citations_recent": 131,
+            "h_index_all": 6,
+            "h_index_recent": 6,
+            "i10_index_all": 4,
+            "i10_index_recent": 4
+        },
+        {
+            "name": "K Liu",
+            "citations_all": 3501,
+            "citations_recent": 3341,
+            "h_index_all": 25,
+            "h_index_recent": 25,
+            "i10_index_all": 46,
+            "i10_index_recent": 45
+        },
+        {
+            "name": "X Xia",
+            "citations_all": 22912,
+            "citations_recent": 19911,
+            "h_index_all": 79,
+            "h_index_recent": 76,
+            "i10_index_all": 291,
+            "i10_index_recent": 280
+        }
+    ],
+    "abstract": "Identifying recurring vulnerabilities is crucial for ensuring software security. Clone-based techniques, while widely used, often generate many false alarms due to the existence of similar but patched (SBP) code, which is similar to vulnerable code but is not vulnerable due to having been patched. Although the SBP code poses a great challenge to the effectiveness of existing approaches, it has not yet been well explored.\nIn this paper, we propose a programming language agnostic framework, Fixed Vulnerability Filter (FVF), to identify and filter such SBP instances in vulnerability detection. Different from existing studies that leverage function signatures, our approach analyzes code change histories to precisely pinpoint SBPs and consequently reduce false alarms. Evaluation under practical scenarios confirms the effectiveness and precision of our approach. Remarkably, FVF identifies and filters 65.1% of false alarms from four vulnerability detection tools (i.e., ReDeBug, VUDDY, MVP, and an elementary hash-based approach) without yielding false positives.\nWe further apply FVF to 1,081 real-world software projects and construct a real-world SBP dataset containing 6,827 SBP functions. Due to the SBP nature, the dataset can act as a strict benchmark to test the sensitivity of the vulnerability detection approach in distinguishing real vulnerabilities and SBPs. Using this dataset, we demonstrate the ineffectiveness of four state-of-the-art deep learning-based vulnerability detection approaches. Our dataset can help developers make a more realistic evaluation of vulnerability detection approaches and also paves the way for further exploration of real-world SBP scenarios.",
+    "published_date": "2024-12-30T00:00:00",
+    "last_revised_date": "2024-12-30T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2412.20740.pdf",
+    "primary_category": "Software Engineering (cs.SE)",
+    "categories": [
+        "Software Engineering (cs.SE)",
+        "Cryptography and Security (cs.CR)"
+    ],
+    "keywords": null,
+    "num_pages": 13,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2025": 2
+    },
+    "citationCount": 2,
+    "venue": {
+        "name": "International Conference on Software Engineering",
+        "type": "conference"
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 54,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 68,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 87,
+            "citationCount": 16,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 107,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 31,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 51,
+            "citationCount": 22,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 38,
+            "citationCount": 136,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 15,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 64,
+            "citationCount": 346,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 10,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 28,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 266,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 65,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 58,
+            "citationCount": 48,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 66,
+            "citationCount": 59,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 119,
+            "citationCount": 571,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 30,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 14,
+            "citationCount": 457,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 53,
+            "citationCount": 213,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 55,
+            "citationCount": 28,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 869,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 14,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 57,
+            "citationCount": 24,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 318,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 60,
+            "citationCount": 578,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 35,
+            "citationCount": 193,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 45,
+            "citationCount": 347,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 258,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 23,
+            "citationCount": 16,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 59,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 39,
+            "citationCount": 245,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 68,
+            "citationCount": 264,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 145,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 225,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 296,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 14,
+            "citationCount": 14201,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 24,
+            "citationCount": 251,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 133,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 3484,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 1081,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 12,
+            "citationCount": 287,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 672,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 5,
+            "citationCount": 29924,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 46,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 55,
+            "citationCount": 27,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 46,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 88,
+            "citationCount": 230,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 74,
+            "citationCount": 110,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 90,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 27,
+            "citationCount": 832,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

@@ -1,0 +1,498 @@
+{
+    "arxiv_id": "2412.19142",
+    "title": "CLIP-GS: Unifying Vision-Language Representation with 3D Gaussian Splatting",
+    "authors": [
+        {
+            "name": "S Jiao",
+            "citations_all": 178,
+            "citations_recent": 178,
+            "h_index_all": 5,
+            "h_index_recent": 5,
+            "i10_index_all": 3,
+            "i10_index_recent": 3
+        },
+        {
+            "name": "H Dong",
+            "citations_all": 1335,
+            "citations_recent": 1260,
+            "h_index_all": 14,
+            "h_index_recent": 14,
+            "i10_index_all": 15,
+            "i10_index_recent": 15
+        },
+        {
+            "name": "Y Yin",
+            "citations_all": 252,
+            "citations_recent": 252,
+            "h_index_all": 4,
+            "h_index_recent": 4,
+            "i10_index_all": 3,
+            "i10_index_recent": 3
+        },
+        {
+            "name": "Z Jie",
+            "citations_all": 8706,
+            "citations_recent": 7744,
+            "h_index_all": 39,
+            "h_index_recent": 36,
+            "i10_index_all": 72,
+            "i10_index_recent": 70
+        },
+        {
+            "name": "Y Qian",
+            "citations_all": 1302,
+            "citations_recent": 913,
+            "h_index_all": 8,
+            "h_index_recent": 7,
+            "i10_index_all": 7,
+            "i10_index_recent": 6
+        },
+        {
+            "name": "Y Zhao",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "H Shi",
+            "citations_all": 21540,
+            "citations_recent": 20689,
+            "h_index_all": 58,
+            "h_index_recent": 57,
+            "i10_index_all": 106,
+            "i10_index_recent": 105
+        },
+        {
+            "name": "Y Wei",
+            "citations_all": 30615,
+            "citations_recent": 27662,
+            "h_index_all": 79,
+            "h_index_recent": 75,
+            "i10_index_all": 165,
+            "i10_index_recent": 160
+        }
+    ],
+    "abstract": "Recent works in 3D multimodal learning have made remarkable progress. However, typically 3D multimodal models are only capable of handling point clouds. Compared to the emerging 3D representation technique, 3D Gaussian Splatting (3DGS), the spatially sparse point cloud cannot depict the texture information of 3D objects, resulting in inferior reconstruction capabilities. This limitation constrains the potential of point cloud-based 3D multimodal representation learning. In this paper, we present CLIP-GS, a novel multimodal representation learning framework grounded in 3DGS. We introduce the GS Tokenizer to generate serialized gaussian tokens, which are then processed through transformer layers pre-initialized with weights from point cloud models, resulting in the 3DGS embeddings. CLIP-GS leverages contrastive loss between 3DGS and the visual-text embeddings of CLIP, and we introduce an image voting loss to guide the directionality and convergence of gradient optimization. Furthermore, we develop an efficient way to generate triplets of 3DGS, images, and text, facilitating CLIP-GS in learning unified multimodal representations. Leveraging the well-aligned multimodal representations, CLIP-GS demonstrates versatility and outperforms point cloud-based models on various 3D tasks, including multimodal retrieval, zero-shot, and few-shot classification.",
+    "published_date": "2024-12-26T00:00:00",
+    "last_revised_date": "2024-12-26T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2412.19142.pdf",
+    "primary_category": "Computer Vision and Pattern Recognition (cs.CV)",
+    "categories": [
+        "Computer Vision and Pattern Recognition (cs.CV)"
+    ],
+    "keywords": null,
+    "num_pages": 11,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {},
+    "citationCount": 3,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 64,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 57,
+            "citationCount": 15,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 63,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 25,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 3,
+            "citationCount": 8,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 25,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 65,
+            "citationCount": 64,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 80,
+            "citationCount": 22,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 81,
+            "citationCount": 50,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 68,
+            "citationCount": 49,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 56,
+            "citationCount": 11,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 73,
+            "citationCount": 19,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 91,
+            "citationCount": 101,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 67,
+            "citationCount": 112,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 17,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 58,
+            "citationCount": 292,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 76,
+            "citationCount": 127,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 68,
+            "citationCount": 262,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 100,
+            "citationCount": 233,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 55,
+            "citationCount": 135,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 39,
+            "citationCount": 61,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 76,
+            "citationCount": 771,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 61,
+            "citationCount": 5287,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 146,
+            "citationCount": 649,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 85,
+            "citationCount": 547,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 117,
+            "citationCount": 187,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 291,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 85,
+            "citationCount": 151,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 70,
+            "citationCount": 164,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 51,
+            "citationCount": 644,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 62,
+            "citationCount": 1775,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 88,
+            "citationCount": 1192,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 62,
+            "citationCount": 246,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 79,
+            "citationCount": 188,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 76,
+            "citationCount": 120,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 62,
+            "citationCount": 170,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 76,
+            "citationCount": 309,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 57,
+            "citationCount": 82,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 56,
+            "citationCount": 4671,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 67,
+            "citationCount": 532,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 71,
+            "citationCount": 515,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 74,
+            "citationCount": 799,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 35,
+            "citationCount": 38,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 53,
+            "citationCount": 2229,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 220,
+            "citationCount": 35880,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 81,
+            "citationCount": 4389,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 390,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 50,
+            "citationCount": 1805,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 2279,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 65,
+            "citationCount": 47640,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 67,
+            "citationCount": 279,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 51,
+            "citationCount": 581,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 42,
+            "citationCount": 534,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 38,
+            "citationCount": 1556,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 95,
+            "citationCount": 6583,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 12034,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 15312,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 55,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 5810,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 3441,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 14972,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 44,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 67,
+            "citationCount": 140,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 606,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

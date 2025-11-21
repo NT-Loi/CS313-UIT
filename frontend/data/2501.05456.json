@@ -1,0 +1,445 @@
+{
+    "arxiv_id": "2501.05456",
+    "title": "LLM Based Input Space Partitioning Testing for Library APIs",
+    "authors": [
+        {
+            "name": "J Li",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "Z Dong",
+            "citations_all": 701,
+            "citations_recent": 597,
+            "h_index_all": 13,
+            "h_index_recent": 12,
+            "i10_index_all": 14,
+            "i10_index_recent": 12
+        },
+        {
+            "name": "C Wang",
+            "citations_all": 572,
+            "citations_recent": 570,
+            "h_index_all": 13,
+            "h_index_recent": 13,
+            "i10_index_all": 19,
+            "i10_index_recent": 19
+        },
+        {
+            "name": "H You",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "C Zhang",
+            "citations_all": 886,
+            "citations_recent": 876,
+            "h_index_all": 15,
+            "h_index_recent": 15,
+            "i10_index_all": 18,
+            "i10_index_recent": 18
+        },
+        {
+            "name": "Y Liu",
+            "citations_all": 38812,
+            "citations_recent": 33325,
+            "h_index_all": 95,
+            "h_index_recent": 88,
+            "i10_index_all": 533,
+            "i10_index_recent": 462
+        },
+        {
+            "name": "X Peng",
+            "citations_all": 7551,
+            "citations_recent": 6071,
+            "h_index_all": 46,
+            "h_index_recent": 40,
+            "i10_index_all": 140,
+            "i10_index_recent": 106
+        }
+    ],
+    "abstract": "Automated library APIs testing is difficult as it requires exploring a vast space of parameter inputs that may involve objects with complex data types. Existing search based approaches, with limited knowledge of relations between object states and program branches, often suffer from the low efficiency issue, i.e., tending to generate invalid inputs. Symbolic execution based approaches can effectively identify such relations, but fail to scale to large programs. In this work, we present an LLM-based input space partitioning testing approach, LISP, for library APIs. The approach leverages LLMs to understand the code of a library API under test and perform input space partitioning based on its understanding and rich common knowledge. Specifically, we provide the signature and code of the API under test to LLMs, with the expectation of obtaining a text description of each input space partition of theAPI under test. Then, we generate inputs through employing the generated text description to sample inputs from each partition, ultimately resulting in test suites that systematically explore the program behavior of the API. We evaluate LISP on more than 2,205 library API methods taken from 10 popular open-source Java libraries (e.g.,apache/commonslang with 2.6k stars, guava with 48.8k stars on GitHub). Our experiment results show that LISP is effective in library API testing. It significantly outperforms state-of-the-art tool EvoSuite in terms of edge coverage. On average, LISP achieves 67.82% branch coverage, surpassing EvoSuite by 1.21 times. In total, LISP triggers 404 exceptions or errors in the experiments, and discovers 13 previously unknown vulnerabilities during evaluation, which have been assigned CVE IDs.",
+    "published_date": "2024-12-15T00:00:00",
+    "last_revised_date": "2024-12-15T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2501.05456.pdf",
+    "primary_category": "Software Engineering (cs.SE)",
+    "categories": [
+        "Software Engineering (cs.SE)",
+        "Cryptography and Security (cs.CR)"
+    ],
+    "keywords": null,
+    "num_pages": 13,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2024": 1,
+        "2025": 1
+    },
+    "citationCount": 2,
+    "venue": {
+        "name": "International Conference on Software Engineering",
+        "type": "conference"
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 64,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 87,
+            "citationCount": 10,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 55,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 51,
+            "citationCount": 120,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 86,
+            "citationCount": 91,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 66,
+            "citationCount": 163,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 81,
+            "citationCount": 89,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 17898,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 75,
+            "citationCount": 176,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 80,
+            "citationCount": 15664,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 74,
+            "citationCount": 84,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 318,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 93,
+            "citationCount": 251,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 90,
+            "citationCount": 264,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 106,
+            "citationCount": 3512,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 38,
+            "citationCount": 22,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 29,
+            "citationCount": 17,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 81,
+            "citationCount": 148,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 65,
+            "citationCount": 6,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 38,
+            "citationCount": 41,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 81,
+            "citationCount": 726,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 173,
+            "citationCount": 6877,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 52,
+            "citationCount": 1198,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 119,
+            "citationCount": 12338,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 55,
+            "citationCount": 1276,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 23,
+            "citationCount": 59,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 63,
+            "citationCount": 30,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 169,
+            "citationCount": 4222,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 76,
+            "citationCount": 35,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 105,
+            "citationCount": 2497,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 57,
+            "citationCount": 40,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 127,
+            "citationCount": 6772,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 26,
+            "citationCount": 1065,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 1,
+            "citationCount": 2365,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 45,
+            "citationCount": 115,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 146,
+            "citationCount": 47268,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 2822,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 94,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 50,
+            "citationCount": 72,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 39,
+            "citationCount": 35,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 74,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 14,
+            "citationCount": 23,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 56,
+            "citationCount": 82,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 15,
+            "citationCount": 1155,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 1322,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 63,
+            "citationCount": 435,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 64,
+            "citationCount": 121,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 1727,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 29,
+            "citationCount": 77,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 75,
+            "citationCount": 24886,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

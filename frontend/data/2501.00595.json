@@ -1,0 +1,288 @@
+{
+    "arxiv_id": "2501.00595",
+    "title": "Unbiased GNN Learning via Fairness-Aware Subgraph Diffusion",
+    "authors": [
+        {
+            "name": "A Alchihabi",
+            "citations_all": 207,
+            "citations_recent": 183,
+            "h_index_all": 6,
+            "h_index_recent": 5,
+            "i10_index_all": 4,
+            "i10_index_recent": 3
+        },
+        {
+            "name": "Y Guo",
+            "citations_all": 11350,
+            "citations_recent": 8150,
+            "h_index_all": 39,
+            "h_index_recent": 29,
+            "i10_index_all": 83,
+            "i10_index_recent": 61
+        }
+    ],
+    "abstract": "Graph Neural Networks (GNNs) have demonstrated remarkable efficacy in tackling a wide array of graph-related tasks across diverse domains. However, a significant challenge lies in their propensity to generate biased predictions, particularly with respect to sensitive node attributes such as age and gender. These biases, inherent in many machine learning models, are amplified in GNNs due to the message-passing mechanism, which allows nodes to influence each other, rendering the task of making fair predictions notably challenging. This issue is particularly pertinent in critical domains where model fairness holds paramount importance. In this paper, we propose a novel generative Fairness-Aware Subgraph Diffusion (FASD) method for unbiased GNN learning. The method initiates by strategically sampling small subgraphs from the original large input graph, and then proceeds to conduct subgraph debiasing via generative fairness-aware graph diffusion processes based on stochastic differential equations (SDEs). To effectively diffuse unfairness in the input data, we introduce additional adversary bias perturbations to the subgraphs during the forward diffusion process, and train score-based models to predict these applied perturbations, enabling them to learn the underlying dynamics of the biases present in the data. Subsequently, the trained score-based models are utilized to further debias the original subgraph samples through the reverse diffusion process. Finally, FASD induces fair node predictions on the input graph by performing standard GNN learning on the debiased subgraphs. Experimental results demonstrate the superior performance of the proposed method over state-of-the-art Fair GNN baselines across multiple benchmark datasets.",
+    "published_date": "2024-12-31T00:00:00",
+    "last_revised_date": "2024-12-31T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2501.00595.pdf",
+    "primary_category": "Machine Learning (cs.LG)",
+    "categories": [
+        "Machine Learning (cs.LG)",
+        "Artificial Intelligence (cs.AI)"
+    ],
+    "keywords": null,
+    "num_pages": 15,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {},
+    "citationCount": 0,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null
+    },
+    "citations": [],
+    "referenceCount": 39,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 54,
+            "citationCount": 82,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 122,
+            "citationCount": 82,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 35,
+            "citationCount": 57,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 62,
+            "citationCount": 447,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 101,
+            "citationCount": 27,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 59,
+            "citationCount": 270,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 55,
+            "citationCount": 35,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 131,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 69,
+            "citationCount": 144,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 52,
+            "citationCount": 94,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 175,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 55,
+            "citationCount": 195,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 94,
+            "citationCount": 165,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 66,
+            "citationCount": 7860,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 51,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 54,
+            "citationCount": 1229,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 63,
+            "citationCount": 275,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 49,
+            "citationCount": 889,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 188,
+            "citationCount": 4879,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 210,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 273,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 42,
+            "citationCount": 345,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 55,
+            "citationCount": 718,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 1661,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 11,
+            "citationCount": 448,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 37,
+            "citationCount": 1250,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 16,
+            "citationCount": 4562,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 38,
+            "citationCount": 30870,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 11355,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 13,
+            "citationCount": 1900,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 1398,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 4076,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 1048,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 69,
+            "citationCount": 47,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 13,
+            "citationCount": 2726,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 11,
+            "citationCount": 326,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

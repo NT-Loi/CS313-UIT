@@ -1,0 +1,920 @@
+{
+    "arxiv_id": "2501.00103",
+    "title": "LTX-Video: Realtime Video Latent Diffusion",
+    "authors": [
+        {
+            "name": "Y HaCohen",
+            "citations_all": 865,
+            "citations_recent": 293,
+            "h_index_all": 6,
+            "h_index_recent": 6,
+            "i10_index_all": 6,
+            "i10_index_recent": 5
+        },
+        {
+            "name": "N Chiprut",
+            "citations_all": 131,
+            "citations_recent": 131,
+            "h_index_all": 2,
+            "h_index_recent": 2,
+            "i10_index_all": 1,
+            "i10_index_recent": 1
+        },
+        {
+            "name": "B Brazowski",
+            "citations_all": 126,
+            "citations_recent": 126,
+            "h_index_all": 2,
+            "h_index_recent": 2,
+            "i10_index_all": 1,
+            "i10_index_recent": 1
+        },
+        {
+            "name": "D Shalem",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "D Moshe",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "E Richardson",
+            "citations_all": 585,
+            "citations_recent": 503,
+            "h_index_all": 9,
+            "h_index_recent": 8,
+            "i10_index_all": 8,
+            "i10_index_recent": 8
+        },
+        {
+            "name": "E Levin",
+            "citations_all": 146,
+            "citations_recent": 146,
+            "h_index_all": 3,
+            "h_index_recent": 3,
+            "i10_index_all": 2,
+            "i10_index_recent": 2
+        },
+        {
+            "name": "G Shiran…",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        }
+    ],
+    "abstract": "We introduce LTX-Video, a transformer-based latent diffusion model that adopts a holistic approach to video generation by seamlessly integrating the responsibilities of the Video-VAE and the denoising transformer. Unlike existing methods, which treat these components as independent, LTX-Video aims to optimize their interaction for improved efficiency and quality. At its core is a carefully designed Video-VAE that achieves a high compression ratio of 1:192, with spatiotemporal downscaling of 32 x 32 x 8 pixels per token, enabled by relocating the patchifying operation from the transformer's input to the VAE's input. Operating in this highly compressed latent space enables the transformer to efficiently perform full spatiotemporal self-attention, which is essential for generating high-resolution videos with temporal consistency. However, the high compression inherently limits the representation of fine details. To address this, our VAE decoder is tasked with both latent-to-pixel conversion and the final denoising step, producing the clean result directly in pixel space. This approach preserves the ability to generate fine details without incurring the runtime cost of a separate upsampling module. Our model supports diverse use cases, including text-to-video and image-to-video generation, with both capabilities trained simultaneously. It achieves faster-than-real-time generation, producing 5 seconds of 24 fps video at 768x512 resolution in just 2 seconds on an Nvidia H100 GPU, outperforming all existing models of similar scale. The source code and pre-trained models are publicly available, setting a new benchmark for accessible and scalable video generation.",
+    "published_date": "2024-12-30T00:00:00",
+    "last_revised_date": "2024-12-30T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2501.00103.pdf",
+    "primary_category": "Computer Vision and Pattern Recognition (cs.CV)",
+    "categories": [
+        "Computer Vision and Pattern Recognition (cs.CV)"
+    ],
+    "keywords": null,
+    "num_pages": 21,
+    "github_stars": 8320,
+    "upvote": 46,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 10,
+    "citations_by_year": {
+        "2024": 4,
+        "2025": 121
+    },
+    "citationCount": 125,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 96,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 62,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 57,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 54,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 68,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 56,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 62,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 72,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 74,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 45,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 39,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 49,
+            "citationCount": 4,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 55,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 56,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 51,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 61,
+            "citationCount": 6,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 42,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 74,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 56,
+            "citationCount": 7,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 125,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 77,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 57,
+            "citationCount": 7,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 84,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 19,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 93,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 65,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 58,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 75,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 37,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 4,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 85,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 52,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 90,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 93,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 50,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 74,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 71,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 58,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 30,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 74,
+            "citationCount": 11,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 103,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 42,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 82,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 18,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 6,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 108,
+            "citationCount": 28,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 51,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 57,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 85,
+            "citationCount": 11,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 72,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 65,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 37,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 76,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 53,
+            "citationCount": 4,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 67,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 89,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 77,
+            "citationCount": 4,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 85,
+            "citationCount": 9,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 69,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 65,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 113,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 59,
+            "citationCount": 7,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 58,
+            "citationCount": 15,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 4,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 73,
+            "citationCount": 42,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 72,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 6,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 87,
+            "citationCount": 48,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 59,
+            "citationCount": 12,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 63,
+            "citationCount": 6,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 63,
+            "citationCount": 7,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 50,
+            "citationCount": 7,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 226,
+            "citationCount": 14,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 51,
+            "citationCount": 39,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 85,
+            "citationCount": 31,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 100,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 67,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 55,
+            "citationCount": 4,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 45,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 12,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 16,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 88,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 45,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 74,
+            "citationCount": 71,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 85,
+            "citationCount": 24,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 38,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 30,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 49,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 69,
+            "citationCount": 17,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 58,
+            "citationCount": 11,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 119,
+            "citationCount": 34,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 58,
+            "citationCount": 14,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 19,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 80,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 50,
+            "citationCount": 7,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 89,
+            "citationCount": 6,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 75,
+            "citationCount": 7,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 88,
+            "citationCount": 4,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 91,
+            "citationCount": 51,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 35,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 66,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 15,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 94,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 30,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 0,
+    "references": [],
+    "influentialCitationCount": 31,
+    "embedding": null
+}

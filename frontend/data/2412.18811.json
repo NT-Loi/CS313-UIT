@@ -1,0 +1,70 @@
+{
+    "arxiv_id": "2412.18811",
+    "title": "DCIS: Efficient Length Extrapolation of LLMs via Divide-and-Conquer Scaling Factor Search",
+    "authors": [
+        {
+            "name": "L Yang",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "S Xu",
+            "citations_all": 85,
+            "citations_recent": 85,
+            "h_index_all": 5,
+            "h_index_recent": 5,
+            "i10_index_all": 4,
+            "i10_index_recent": 4
+        },
+        {
+            "name": "D Xiong",
+            "citations_all": 7338,
+            "citations_recent": 4634,
+            "h_index_all": 41,
+            "h_index_recent": 33,
+            "i10_index_all": 133,
+            "i10_index_recent": 109
+        }
+    ],
+    "abstract": "Large language models (LLMs) based on the Transformer architecture usually have their context length limited due to the high training cost. Recent advancements extend the context window by adjusting the scaling factors of RoPE and fine-tuning. However, suboptimal initialization of these factors results in increased fine-tuning costs and reduced performance at target length. To address these challenges, we propose an innovative RoPE-based fine-tuning framework that diverges from conventional scaling factors search. Specifically, we present a Divide-and-Conquer Incremental Search (DCIS) algorithm that strategically determines the better scaling factors. Further fine-tuning with the identified scaling factors effectively extends the context window of LLMs. Empirical results demonstrate that our methodology not only mitigates performance decay at extended target lengths but also allows the model to fine-tune on short contexts and generalize to long contexts, thereby reducing the cost of fine-tuning. The scaling factors obtained through DCIS can even perform effectively without fine-tuning. Further analysis of the search space reveals that DCIS achieves twice the search efficiency compared to other methods. We also examine the impact of the non-strictly increasing scaling factors utilized in DCIS and evaluate the general capabilities of LLMs across various context lengths.",
+    "published_date": "2024-12-25T00:00:00",
+    "last_revised_date": "2024-12-25T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2412.18811.pdf",
+    "primary_category": "Computation and Language (cs.CL)",
+    "categories": [
+        "Computation and Language (cs.CL)"
+    ],
+    "keywords": null,
+    "num_pages": 12,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2025": 1
+    },
+    "citationCount": 1,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 50,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 0,
+    "references": [],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

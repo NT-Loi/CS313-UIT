@@ -1,0 +1,252 @@
+{
+    "arxiv_id": "2501.14740",
+    "title": "Datapath Combinational Equivalence Checking With Hybrid Sweeping Engines and Parallelization",
+    "authors": [],
+    "abstract": "In the application of IC design for microprocessors, there are often demands for optimizing the implementation of datapath circuits, on which various arithmetic operations are performed. Combinational equivalence checking (CEC) plays an essential role in ensuring the correctness of design optimization. The most prevalent CEC algorithms are based on SAT sweeping, which utilizes SAT to prove the equivalence of the internal node pairs in topological order, and the equivalent nodes are merged. Datapath circuits usually contain equivalent pairs for which the transitive fan-in cones are small but have a high XOR chain density, and proving such node pairs is very difficult for SAT solvers. An exact probability-based simulation (EPS) is suitable for verifying such pairs, while this method is not suitable for pairs with many primary inputs due to the memory cost. We first reduce the memory cost of EPS and integrate it to improve the SAT sweeping method. Considering the complementary abilities of SAT and EPS, we design an engine selection heuristic to dynamically choose SAT or EPS in the sweeping process, according to XOR chain density. Our method is further improved by reducing unnecessary engine calls by detecting regularity. Furthermore, we parallelized the SAT and EPS engines of HybridCEC, leading to the parallel CEC prover. Experiments on a benchmark suite from industrial datapath circuits show that our method is much faster than the state-of-the-art CEC tool namely ABC &cec on nearly all instances, and is more than 100x faster on 30% of the instances, 1000x faster on 12% of the instances. In addition, the 64 threads version of our method achieved 77x speedup.",
+    "published_date": "2024-12-12T00:00:00",
+    "last_revised_date": "2024-12-12T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2501.14740.pdf",
+    "primary_category": "Distributed, Parallel, and Cluster Computing (cs.DC)",
+    "categories": [
+        "Distributed, Parallel, and Cluster Computing (cs.DC)",
+        "Hardware Architecture (cs.AR)"
+    ],
+    "keywords": null,
+    "num_pages": 12,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {},
+    "citationCount": 0,
+    "venue": {
+        "name": null,
+        "type": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 10,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 20,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 12,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 15,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 307,
+            "citationCount": 14,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 232,
+            "citationCount": 27,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 29,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 18,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 59,
+            "citationCount": 9,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 19,
+            "citationCount": 14,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 12,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 99,
+            "citationCount": 19,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 21,
+            "citationCount": 14,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 111,
+            "citationCount": 454,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 22,
+            "citationCount": 7,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 26,
+            "citationCount": 70,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 20,
+            "citationCount": 4,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 177,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 64,
+            "citationCount": 22,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 26,
+            "citationCount": 98,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 117,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 103,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 10,
+            "citationCount": 3327,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 24,
+            "citationCount": 338,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 16,
+            "citationCount": 31,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 1581,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 3,
+            "citationCount": 80,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 7,
+            "citationCount": 11,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 340,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 116,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 22,
+            "citationCount": 167,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 450,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 1,
+            "citationCount": 1564,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 2,
+    "embedding": null
+}
