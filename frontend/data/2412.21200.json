@@ -1,0 +1,86 @@
+{
+    "arxiv_id": "2412.21200",
+    "title": "Distributed Mixture-of-Agents for Edge Inference with Large Language Models",
+    "authors": [
+        {
+            "name": "P Mitra",
+            "citations_all": 98,
+            "citations_recent": 98,
+            "h_index_all": 5,
+            "h_index_recent": 5,
+            "i10_index_all": 4,
+            "i10_index_recent": 4
+        },
+        {
+            "name": "P Kaswan",
+            "citations_all": 242,
+            "citations_recent": 242,
+            "h_index_all": 10,
+            "h_index_recent": 10,
+            "i10_index_all": 10,
+            "i10_index_recent": 10
+        },
+        {
+            "name": "S Ulukus",
+            "citations_all": 22854,
+            "citations_recent": 9237,
+            "h_index_all": 68,
+            "h_index_recent": 45,
+            "i10_index_all": 301,
+            "i10_index_recent": 179
+        }
+    ],
+    "abstract": "Mixture-of-Agents (MoA) has recently been proposed as a method to enhance performance of large language models (LLMs), enabling multiple individual LLMs to work together for collaborative inference. This collaborative approach results in improved responses to user prompts compared to relying on a single LLM. In this paper, we consider such an MoA architecture in a distributed setting, where LLMs operate on individual edge devices, each uniquely associated with a user and equipped with its own distributed computing power. These devices exchange information using decentralized gossip algorithms, allowing different device nodes to talk without the supervision of a centralized server. In the considered setup, different users have their own LLM models to address user prompts. Additionally, the devices gossip either their own user-specific prompts or augmented prompts to generate more refined answers to certain queries. User prompts are temporarily stored in the device queues when their corresponding LLMs are busy. Given the memory limitations of edge devices, it is crucial to ensure that the average queue sizes in the system remain bounded. In this paper, we address this by theoretically calculating the queuing stability conditions for the device queues under reasonable assumptions, which we validate experimentally as well. Further, we demonstrate through experiments, leveraging open-source LLMs for the implementation of distributed MoA, that certain MoA configurations produce higher-quality responses compared to others, as evaluated on AlpacaEval 2.0 benchmark. The implementation is available at: this https URL.",
+    "published_date": "2024-12-30T00:00:00",
+    "last_revised_date": "2024-12-30T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2412.21200.pdf",
+    "primary_category": "Information Theory (cs.IT)",
+    "categories": [
+        "Information Theory (cs.IT)",
+        "Computation and Language (cs.CL)",
+        "Distributed, Parallel, and Cluster Computing (cs.DC)",
+        "Machine Learning (cs.LG)",
+        "Networking and Internet Architecture (cs.NI)"
+    ],
+    "keywords": null,
+    "num_pages": 5,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2025": 5
+    },
+    "citationCount": 5,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 177,
+            "citationCount": 7,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 0,
+    "references": [],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

@@ -1,0 +1,343 @@
+{
+    "arxiv_id": "2412.20258",
+    "title": "Reusing Legacy Code in WebAssembly: Key Challenges of Cross-Compilation and Code Semantics Preservation",
+    "authors": [
+        {
+            "name": "S Baradaran",
+            "citations_all": 17,
+            "citations_recent": 17,
+            "h_index_all": 2,
+            "h_index_recent": 2,
+            "i10_index_all": 1,
+            "i10_index_recent": 1
+        },
+        {
+            "name": "L Huang",
+            "citations_all": 1,
+            "citations_recent": 1,
+            "h_index_all": 1,
+            "h_index_recent": 1,
+            "i10_index_all": 0,
+            "i10_index_recent": 0
+        },
+        {
+            "name": "M Raghothaman",
+            "citations_all": 2660,
+            "citations_recent": 1745,
+            "h_index_all": 21,
+            "h_index_recent": 18,
+            "i10_index_all": 28,
+            "i10_index_recent": 27
+        },
+        {
+            "name": "W Wang",
+            "citations_all": 2578,
+            "citations_recent": 2366,
+            "h_index_all": 14,
+            "h_index_recent": 13,
+            "i10_index_all": 20,
+            "i10_index_recent": 16
+        }
+    ],
+    "abstract": "WebAssembly (Wasm) has emerged as a powerful technology for executing high-performance code and reusing legacy code in web browsers. With its increasing adoption, ensuring the reliability of WebAssembly code becomes paramount. In this paper, we investigate how well WebAssembly compilers fulfill code reusability. Specifically, we inquire (1) what challenges arise when cross-compiling a high-level language codebase into WebAssembly and (2) how faithfully WebAssembly compilers preserve code semantics in this new binary. Through a study on 115 open-source codebases, we identify the key challenges in cross-compiling legacy C/C++ code into WebAssembly, highlighting the risks of silent miscompilation and compile-time errors. We categorize these challenges based on their root causes and propose corresponding solutions. We then introduce a differential testing approach, implemented in a framework named WasmChecker, to investigate the semantics equivalency of code between native x86-64 and WebAssembly binaries. Using WasmChecker, we provide a witness that WebAssembly compilers do not necessarily preserve code semantics when cross-compiling high-level language code into WebAssembly due to different implementations of standard libraries, unsupported system calls/APIs, WebAssembly's unique features, and compiler bugs. Furthermore, we have identified 11 new bugs in the Emscripten compiler toolchain, all confirmed by Emscripten developers. As proof of concept, we make our framework and the collected dataset of open-source codebases publicly available.",
+    "published_date": "2024-12-28T00:00:00",
+    "last_revised_date": "2024-12-28T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2412.20258.pdf",
+    "primary_category": "Software Engineering (cs.SE)",
+    "categories": [
+        "Software Engineering (cs.SE)"
+    ],
+    "keywords": null,
+    "num_pages": 21,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2025": 1
+    },
+    "citationCount": 1,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null
+    },
+    "citations": [],
+    "referenceCount": 45,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 4,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 38,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 27,
+            "citationCount": 15,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 61,
+            "citationCount": 12,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 23,
+            "citationCount": 33,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 12,
+            "citationCount": 6,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 54,
+            "citationCount": 18,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 80,
+            "citationCount": 28,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 33,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 69,
+            "citationCount": 40,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 50,
+            "citationCount": 33,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 23,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 18,
+            "citationCount": 19,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 98,
+            "citationCount": 47,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 26,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 50,
+            "citationCount": 97,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 52,
+            "citationCount": 21,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 10,
+            "citationCount": 32,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 680,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 20,
+            "citationCount": 29,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 52,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 145,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 30,
+            "citationCount": 1149,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 183,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 42,
+            "citationCount": 83,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 1688,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 53,
+            "citationCount": 62,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 70,
+            "citationCount": 122,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 678,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 7,
+            "citationCount": 631,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

@@ -1,0 +1,72 @@
+{
+    "arxiv_id": "2501.00692",
+    "title": "Adjoint sharding for very long context training of state space models",
+    "authors": [
+        {
+            "name": "X Xu",
+            "citations_all": 13,
+            "citations_recent": 13,
+            "h_index_all": 2,
+            "h_index_recent": 2,
+            "i10_index_all": 0,
+            "i10_index_recent": 0
+        },
+        {
+            "name": "A Tavanaei",
+            "citations_all": 2910,
+            "citations_recent": 2554,
+            "h_index_all": 17,
+            "h_index_recent": 14,
+            "i10_index_all": 20,
+            "i10_index_recent": 17
+        },
+        {
+            "name": "K Asadi",
+            "citations_all": 3500,
+            "citations_recent": 3147,
+            "h_index_all": 17,
+            "h_index_recent": 15,
+            "i10_index_all": 20,
+            "i10_index_recent": 19
+        },
+        {
+            "name": "K Bouyarmane",
+            "citations_all": 1266,
+            "citations_recent": 610,
+            "h_index_all": 18,
+            "h_index_recent": 12,
+            "i10_index_all": 24,
+            "i10_index_recent": 15
+        }
+    ],
+    "abstract": "Despite very fast progress, efficiently training large language models (LLMs) in very long contexts remains challenging. Existing methods fall back to training LLMs with short contexts (a maximum of a few thousands tokens in training) and use inference time techniques when evaluating on long contexts (above 1M tokens context window at inference). As opposed to long-context-inference, training on very long context input prompts is quickly limited by GPU memory availability and by the prohibitively long training times it requires on state-of-the-art hardware. Meanwhile, many real-life applications require not only inference but also training/fine-tuning with long context on specific tasks. Such applications include, for example, augmenting the context with various sources of raw reference information for fact extraction, fact summarization, or fact reconciliation tasks. We propose adjoint sharding, a novel technique that comprises sharding gradient calculation during training to reduce memory requirements by orders of magnitude, making training on very long context computationally tractable. Adjoint sharding is based on the adjoint method and computes equivalent gradients to backpropagation. We also propose truncated adjoint sharding to speed up the algorithm while maintaining performance. We provide a distributed version, and a paralleled version of adjoint sharding to further speed up training. Empirical results show the proposed adjoint sharding algorithm reduces memory usage by up to 3X with a 1.27B parameter large language model on 1M context length training. This allows to increase the maximum context length during training or fine-tuning of a 1.27B parameter model from 35K tokens to above 100K tokens on a training infrastructure composed of five AWS P4 instances.",
+    "published_date": "2025-01-01T00:00:00",
+    "last_revised_date": "2025-01-01T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2501.00692.pdf",
+    "primary_category": "Machine Learning (cs.LG)",
+    "categories": [
+        "Machine Learning (cs.LG)",
+        "Artificial Intelligence (cs.AI)",
+        "Computation and Language (cs.CL)"
+    ],
+    "keywords": null,
+    "num_pages": 17,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {},
+    "citationCount": 0,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null
+    },
+    "citations": [],
+    "referenceCount": 0,
+    "references": [],
+    "influentialCitationCount": 0,
+    "embedding": null
+}
