@@ -1,0 +1,64 @@
+{
+    "arxiv_id": "2501.00119",
+    "title": "Post Launch Evaluation of Policies in a High-Dimensional Setting",
+    "authors": [
+        {
+            "name": "S Nassiri",
+            "citations_all": 388,
+            "citations_recent": 309,
+            "h_index_all": 8,
+            "h_index_recent": 6,
+            "i10_index_all": 6,
+            "i10_index_recent": 5
+        },
+        {
+            "name": "M Bayati",
+            "citations_all": 7319,
+            "citations_recent": 4315,
+            "h_index_all": 32,
+            "h_index_recent": 26,
+            "i10_index_all": 45,
+            "i10_index_recent": 39
+        },
+        {
+            "name": "J Cooprider",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        }
+    ],
+    "abstract": "A/B tests, also known as randomized controlled experiments (RCTs), are the gold standard for evaluating the impact of new policies, products, or decisions. However, these tests can be costly in terms of time and resources, potentially exposing users, customers, or other test subjects (units) to inferior options. This paper explores practical considerations in applying methodologies inspired by \"synthetic control\" as an alternative to traditional A/B testing in settings with very large numbers of units, involving up to hundreds of millions of units, which is common in modern applications such as e-commerce and ride-sharing platforms. This method is particularly valuable in settings where the treatment affects only a subset of units, leaving many units unaffected. In these scenarios, synthetic control methods leverage data from unaffected units to estimate counterfactual outcomes for treated units. After the treatment is implemented, these estimates can be compared to actual outcomes to measure the treatment effect. A key challenge in creating accurate counterfactual outcomes is interpolation bias, a well-documented phenomenon that occurs when control units differ significantly from treated units. To address this, we propose a two-phase approach: first using nearest neighbor matching based on unit covariates to select similar control units, then applying supervised learning methods suitable for high-dimensional data to estimate counterfactual outcomes. Testing using six large-scale experiments demonstrates that this approach successfully improves estimate accuracy. However, our analysis reveals that machine learning bias -- which arises from methods that trade off bias for variance reduction -- can impact results and affect conclusions about treatment effects. We document this bias in large-scale experimental settings and propose effective de-biasing techniques to address this challenge.",
+    "published_date": "2024-12-30T00:00:00",
+    "last_revised_date": "2024-12-30T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2501.00119.pdf",
+    "primary_category": "Machine Learning (stat.ML)",
+    "categories": [
+        "Machine Learning (stat.ML)",
+        "Machine Learning (cs.LG)",
+        "Applications (stat.AP)",
+        "Methodology (stat.ME)"
+    ],
+    "keywords": null,
+    "num_pages": 15,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {},
+    "citationCount": 0,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null
+    },
+    "citations": [],
+    "referenceCount": 0,
+    "references": [],
+    "influentialCitationCount": 0,
+    "embedding": null
+}
