@@ -1,0 +1,54 @@
+{
+    "arxiv_id": "2502.07634",
+    "title": "Efficient Distributed Training through Gradient Compression with Sparsification and Quantization Techniques",
+    "authors": [
+        {
+            "name": "S Singh",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "S Kumar",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        }
+    ],
+    "abstract": "This study investigates the impact of gradient compression on distributed training performance, focusing on sparsification and quantization techniques, including top-k, DGC, and QSGD. In baseline experiments, random-k compression results in severe performance degradation, highlighting its inefficacy. In contrast, using top-k and DGC at 50 times compression yields performance improvements, reducing perplexity by up to 0.06 compared to baseline. Experiments across 1, 2, and 4 workers demonstrate that conservative sparsification can have a regularizing effect, especially for smaller models, while compression ratios above 5000 times impair performance, particularly for DGC. Communication times are reduced across all compression methods, with top-k and DGC decreasing communication to negligible levels at high compression ratios. However, increased computation times offset this efficiency for top-k due to sorting demands, making it less scalable than DGC or QSGD. In convergence tests, sparsification techniques show accelerated convergence, requiring fewer epochs than the baseline, which has implications for computational savings. Although precision trade-offs emerge, floating point errors are mitigated by compression. This study's findings underscore the need to tune hyperparameters specifically for each compression technique to achieve optimal model performance, especially in distributed training systems.",
+    "published_date": "2024-12-07T00:00:00",
+    "last_revised_date": "2024-12-07T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2502.07634.pdf",
+    "primary_category": "Machine Learning (cs.LG)",
+    "categories": [
+        "Machine Learning (cs.LG)",
+        "Multimedia (cs.MM)"
+    ],
+    "keywords": null,
+    "num_pages": 14,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {},
+    "citationCount": 0,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null,
+        "ranking": null
+    },
+    "citations": [],
+    "referenceCount": 0,
+    "references": [],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

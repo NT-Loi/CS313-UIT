@@ -1,0 +1,260 @@
+{
+    "arxiv_id": "2212.11935",
+    "title": "GraphTango: A Hybrid Representation Format for Efficient Streaming Graph Updates and Analysis",
+    "authors": [
+        {
+            "name": "A Ahmed",
+            "citations_all": 434,
+            "citations_recent": 361,
+            "h_index_all": 10,
+            "h_index_recent": 10,
+            "i10_index_all": 11,
+            "i10_index_recent": 11
+        },
+        {
+            "name": "FA Siddique",
+            "citations_all": 1103,
+            "citations_recent": 926,
+            "h_index_all": 16,
+            "h_index_recent": 15,
+            "i10_index_all": 24,
+            "i10_index_recent": 20
+        },
+        {
+            "name": "K Skadron",
+            "citations_all": 29900,
+            "citations_recent": 6914,
+            "h_index_all": 72,
+            "h_index_recent": 32,
+            "i10_index_all": 219,
+            "i10_index_recent": 102
+        }
+    ],
+    "abstract": "Streaming graph processing involves performing updates and analytics on a time-evolving graph. The underlying representation format largely determines the throughputs of these updates and analytics phases. Existing formats usually employ variations of hash tables or adjacency lists. However, adjacency-list-based approaches perform poorly on heavy-tailed graphs, and the hash-based approaches suffer on short-tailed graphs. We propose GraphTango, a hybrid format that provides excellent update and analytics throughput regardless of the graph's degree distribution. GraphTango switches among three different formats based on a vertex's degree: i) Low-degree vertices store the edges directly with the neighborhood metadata, confining accesses to a single cache line, ii) Medium-degree vertices use adjacency lists, and iii) High-degree vertices use hash tables as well as adjacency lists. In this case, adjacency list provides fast traversal during the analytics phase, while the hash table provides constant-time lookups during the update phase. We further optimized the performance by designing an open-addressing-based hash table that fully utilizes every fetched cache line. In addition, we developed a thread-local lock-free memory pool that allows fast growing/shrinking of the adjacency lists and hash tables in a multi-threaded environment. We evaluated GraphTango with the help of the SAGA-Bench framework and compared it with four other representation formats. On average, GraphTango provides 4.5x higher insertion throughput, 3.2x higher deletion throughput, and 1.1x higher analytics throughput over the next best format. Furthermore, we integrated GraphTango with the state-of-the-art graph processing frameworks DZiG and RisGraph. Compared to the vanilla DZiG and vanilla RisGraph, [GraphTango + DZiG] and [GraphTango + RisGraph] reduces the average batch processing time by 2.3x and 1.5x, respectively.",
+    "published_date": "2022-12-22T00:00:00",
+    "last_revised_date": "2022-12-22T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2212.11935.pdf",
+    "primary_category": "Data Structures and Algorithms (cs.DS)",
+    "categories": [
+        "Data Structures and Algorithms (cs.DS)",
+        "Software Engineering (cs.SE)"
+    ],
+    "keywords": null,
+    "num_pages": 10,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2023": 1,
+        "2025": 1
+    },
+    "citationCount": 2,
+    "venue": {
+        "name": "International journal of parallel programming",
+        "type": "journal",
+        "ranking": "Q3"
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 31,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 71,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 71,
+            "citationCount": 51,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 65,
+            "citationCount": 10,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 89,
+            "citationCount": 46,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 22,
+            "citationCount": 19,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 19,
+            "citationCount": 18,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 158,
+            "citationCount": 74,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 211,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 58,
+            "citationCount": 331,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 23,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 26,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 35,
+            "citationCount": 327,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 4007,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 211,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 8,
+            "citationCount": 251,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 291,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 500,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 9664,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 24,
+            "citationCount": 97,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 2,
+            "citationCount": 21804,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 8,
+            "citationCount": 133,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 24,
+            "citationCount": 10471,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 12,
+            "citationCount": 10,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 7435,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

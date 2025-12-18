@@ -1,0 +1,223 @@
+{
+    "arxiv_id": "1512.07805",
+    "title": "RFP: A Remote Fetching Paradigm for RDMA-Accelerated Systems",
+    "authors": [
+        {
+            "name": "M Su",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "M Zhang",
+            "citations_all": 1842,
+            "citations_recent": 1528,
+            "h_index_all": 17,
+            "h_index_recent": 15,
+            "i10_index_all": 25,
+            "i10_index_recent": 22
+        },
+        {
+            "name": "K Chen",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "Y Wu",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "G Li",
+            "citations_all": 22870,
+            "citations_recent": 15130,
+            "h_index_all": 85,
+            "h_index_recent": 65,
+            "i10_index_all": 265,
+            "i10_index_recent": 234
+        }
+    ],
+    "abstract": "Remote Direct Memory Access (RDMA) is an efficient way to improve the performance of traditional client-server systems. Currently, there are two main design paradigms for RDMA-accelerated systems. The first allows the clients to directly operate the server's memory and totally bypasses the CPUs at server side. The second follows the traditional server-reply paradigm, which asks the server to write results back to the clients. However, the first method has to expose server's memory and needs tremendous re-design of upper-layer software, which is complex, unsafe, error-prone, and inefficient. The second cannot achieve high input/output operations per second (IOPS), because it employs out-bound RDMA-write at server side which is not efficient.\nWe find that the performance of out-bound RDMA-write and in-bound RDMA-read is asymmetric and the latter is 5 times faster than the former. Based on this observation, we propose a novel design paradigm named Remote Fetching Paradigm (RFP). In RFP, the server is still responsible for processing requests from the clients. However, counter-intuitively, instead of sending results back to the clients through out-bound RDMA-write, the server only writes the results in local memory buffers, and the clients use in-bound RDMA-read to remotely fetch these results. Since in-bound RDMA-read achieves much higher IOPS than out-bound RDMA-write, our model is able to bring higher performance than the traditional models.\nIn order to prove the effectiveness of RFP, we design and implement an RDMA-accelerated in-memory key-value store following the RFP model. To further improve the IOPS, we propose an optimization mechanism that combines status checking and result fetching. Experiment results show that RFP can improve the IOPS by 160%~310% against state-of-the-art models for in-memory key-value stores.",
+    "published_date": "2015-12-24T00:00:00",
+    "last_revised_date": "2015-12-24T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/1512.07805.pdf",
+    "primary_category": "Distributed, Parallel, and Cluster Computing (cs.DC)",
+    "categories": [
+        "Distributed, Parallel, and Cluster Computing (cs.DC)"
+    ],
+    "keywords": null,
+    "num_pages": 11,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2016": 1,
+        "2019": 1
+    },
+    "citationCount": 3,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null,
+        "ranking": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 11,
+            "citationCount": 4,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 22,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 12,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 221,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 48,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 30,
+            "citationCount": 40,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 541,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 440,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 403,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 185,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 14,
+            "citationCount": 56,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 1091,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 101,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 57,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 30,
+            "citationCount": 382,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 24,
+            "citationCount": 196,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 120,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 35,
+            "citationCount": 96,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 29,
+            "citationCount": 467,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 9,
+            "citationCount": 4332,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 7,
+            "citationCount": 1782,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 537,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 871,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

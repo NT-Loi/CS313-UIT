@@ -1,0 +1,235 @@
+{
+    "arxiv_id": "1912.07162",
+    "title": "Optimal Multi-Level Interval-based Checkpointing for Exascale Stream Processing Systems",
+    "authors": [
+        {
+            "name": "S Jayasekara",
+            "citations_all": 132,
+            "citations_recent": 98,
+            "h_index_all": 5,
+            "h_index_recent": 5,
+            "i10_index_all": 5,
+            "i10_index_recent": 4
+        },
+        {
+            "name": "A Harwood",
+            "citations_all": 2407,
+            "citations_recent": 716,
+            "h_index_all": 26,
+            "h_index_recent": 15,
+            "i10_index_all": 64,
+            "i10_index_recent": 23
+        },
+        {
+            "name": "S Karunasekera",
+            "citations_all": 7515,
+            "citations_recent": 4317,
+            "h_index_all": 40,
+            "h_index_recent": 27,
+            "i10_index_all": 106,
+            "i10_index_recent": 71
+        }
+    ],
+    "abstract": "State-of-the-art stream processing platforms make use of checkpointing to support fault tolerance, where a \"checkpoint tuple\" flows through the topology to all operators, indicating a checkpoint and triggering a checkpoint operation. The checkpoint will enable recovering from any kind of failure, be it as localized as a process fault or as wide spread as power supply loss to an entire rack of machines. As we move towards Exascale computing, it is becoming clear that this kind of \"single-level\" checkpointing is too inefficient to scale. Some HPC researchers are now investigating multi-level checkpointing, where checkpoint operations at each level are tailored to specific kinds of failure to address the inefficiencies of single-level checkpointing. Multi-level checkpointing has been shown in practice to be superior, giving greater efficiency in operation over single-level checkpointing. However, to date there is no theoretical basis that provides optimal parameter settings for an interval-based coordinated multi-level checkpointing approach. This paper presents a theoretical framework for determining optimal parameter settings in an interval-based multi-level periodic checkpointing system, that is applicable to stream processing. Our approach is stochastic, where at a given checkpoint interval, a level is selected with some probability for checkpointing. We derive the optimal checkpoint interval and associated optimal checkpoint probabilities for a multi-level checkpointing system, that considers failure rates, checkpoint costs, restart costs and possible failure during restarting, at every level. We confirm our results with stochastic simulation and practical experimentation.",
+    "published_date": "2019-12-16T00:00:00",
+    "last_revised_date": "2019-12-16T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/1912.07162.pdf",
+    "primary_category": "Distributed, Parallel, and Cluster Computing (cs.DC)",
+    "categories": [
+        "Distributed, Parallel, and Cluster Computing (cs.DC)"
+    ],
+    "keywords": null,
+    "num_pages": 11,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2021": 1,
+        "2025": 1
+    },
+    "citationCount": 2,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null,
+        "ranking": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 15,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 220,
+            "citationCount": 40,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 26,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 16,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 19,
+            "citationCount": 12,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 230,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 26,
+            "citationCount": 45,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 9,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 20,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 141,
+            "citationCount": 257,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 985,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 30,
+            "citationCount": 123,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 201,
+            "citationCount": 456,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 377,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 91,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 23,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 20,
+            "citationCount": 40,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 14,
+            "citationCount": 16,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 605,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 45,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 23,
+            "citationCount": 17,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 63,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 7,
+            "citationCount": 623,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 20,
+            "citationCount": 33,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 141,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 1,
+            "citationCount": 787,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 82,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 1320,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

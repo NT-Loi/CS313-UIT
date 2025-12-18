@@ -1,0 +1,234 @@
+{
+    "arxiv_id": "1911.13259",
+    "title": "Flatsomatic: A Method for Compression of Somatic Mutation Profiles in Cancer",
+    "authors": [
+        {
+            "name": "G Dubourg-Felonneau",
+            "citations_all": 44,
+            "citations_recent": 39,
+            "h_index_all": 4,
+            "h_index_recent": 4,
+            "i10_index_all": 0,
+            "i10_index_recent": 0
+        },
+        {
+            "name": "Y Kussad",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "D Kirkham",
+            "citations_all": 4,
+            "citations_recent": 3,
+            "h_index_all": 2,
+            "h_index_recent": 1,
+            "i10_index_all": 0,
+            "i10_index_recent": 0
+        },
+        {
+            "name": "JW Cassidy",
+            "citations_all": 3379,
+            "citations_recent": 2230,
+            "h_index_all": 18,
+            "h_index_recent": 16,
+            "i10_index_all": 22,
+            "i10_index_recent": 21
+        },
+        {
+            "name": "N Patel",
+            "citations_all": 474,
+            "citations_recent": 354,
+            "h_index_all": 5,
+            "h_index_recent": 5,
+            "i10_index_all": 3,
+            "i10_index_recent": 3
+        },
+        {
+            "name": "HW Clifford",
+            "citations_all": 403,
+            "citations_recent": 285,
+            "h_index_all": 9,
+            "h_index_recent": 8,
+            "i10_index_all": 7,
+            "i10_index_recent": 6
+        }
+    ],
+    "abstract": "In this study, we present Flatsomatic - a Variational Auto Encoder (VAE) optimized to compress somatic mutations that allow for unbiased data compression whilst maintaining the signal. We compared two different neural network architectures for the VAE: Multilayer Perceptron (MLP) and bidirectional LSTM. The somatic profiles we used to train our models consisted of 8,062 Pan-Cancer patients from The Cancer Genome Atlas and 989 cell lines from the COSMIC cell line project. The profiles for each patient were represented by the genomic loci where somatic mutations occurred and, to reduce sparsity, the locations with a frequency <5 were removed. We enhanced the VAE performance by changing its evidence lower bound, and devised an F1-score based loss showing that it helps the VAE learn better than with binary cross-entropy. We also employed beta-VAE to weight the variational regularisation term in the loss function and showed the best performance through a preliminary function to increase the weight of the regularisation term with each epoch. We assessed the reconstruction ability of the VAE using the micro F1-score metric and showed that our best performing model was a 2-layer deep MLP VAE. Our analysis also showed that the size of the latent space did not have a significant effect on the VAE learning ability. We compared the Flatsomatic embeddings created to a lower dimension version of the data from principal component analysis, showing superior performance of Flatsomatic, and performed K-means clustering on both datasets to draw comparisons to known cancer types of each profile. Finally, we present results that confirm that the Flatsomatic representations of 64 dimensions maintain the same predictive power as the original 8,298 dimensions vector, through prediction of drug response.",
+    "published_date": "2019-11-27T00:00:00",
+    "last_revised_date": "2019-11-27T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/1911.13259.pdf",
+    "primary_category": "Image and Video Processing (eess.IV)",
+    "categories": [
+        "Image and Video Processing (eess.IV)",
+        "Machine Learning (cs.LG)",
+        "Genomics (q-bio.GN)",
+        "Machine Learning (stat.ML)"
+    ],
+    "keywords": null,
+    "num_pages": 7,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2020": 1
+    },
+    "citationCount": 2,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null,
+        "ranking": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 69,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 21,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 8,
+            "citationCount": 357,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 119,
+            "citationCount": 663,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 10,
+            "citationCount": 9,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 201,
+            "citationCount": 124,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 512,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 5259,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 334,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 54,
+            "citationCount": 44181,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 19150,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 4,
+            "citationCount": 26966,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 10,
+            "citationCount": 7373,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 13,
+            "citationCount": 3094,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 264,
+            "citationCount": 12821,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 2159,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 57,
+            "citationCount": 38,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 20,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 18,
+            "citationCount": 8982,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 617,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

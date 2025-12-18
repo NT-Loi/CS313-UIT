@@ -1,0 +1,55 @@
+{
+    "arxiv_id": "2501.00052",
+    "title": "Efficient and Scalable Deep Reinforcement Learning for Mean Field Control Games",
+    "authors": [
+        {
+            "name": "N Peng",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "Y Wang",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        }
+    ],
+    "abstract": "Mean Field Control Games (MFCGs) provide a powerful theoretical framework for analyzing systems of infinitely many interacting agents, blending elements from Mean Field Games (MFGs) and Mean Field Control (MFC). However, solving the coupled Hamilton-Jacobi-Bellman and Fokker-Planck equations that characterize MFCG equilibria remains a significant computational challenge, particularly in high-dimensional or complex environments.\nThis paper presents a scalable deep Reinforcement Learning (RL) approach to approximate equilibrium solutions of MFCGs. Building on previous works, We reformulate the infinite-agent stochastic control problem as a Markov Decision Process, where each representative agent interacts with the evolving mean field distribution. We use the actor-critic based algorithm from a previous paper (Angiuli this http URL., 2024) as the baseline and propose several versions of more scalable and efficient algorithms, utilizing techniques including parallel sample collection (batching); mini-batching; target network; proximal policy optimization (PPO); generalized advantage estimation (GAE); and entropy regularization. By leveraging these techniques, we effectively improved the efficiency, scalability, and training stability of the baseline algorithm.\nWe evaluate our method on a linear-quadratic benchmark problem, where an analytical solution to the MFCG equilibrium is available. Our results show that some versions of our proposed approach achieve faster convergence and closely approximate the theoretical optimum, outperforming the baseline algorithm by an order of magnitude in sample efficiency. Our work lays the foundation for adapting deep RL to solve more complicated MFCGs closely related to real life, such as large-scale autonomous transportation systems, multi-firm economic competition, and inter-bank borrowing problems.",
+    "published_date": "2024-12-28T00:00:00",
+    "last_revised_date": "2024-12-28T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2501.00052.pdf",
+    "primary_category": "Machine Learning (cs.LG)",
+    "categories": [
+        "Machine Learning (cs.LG)",
+        "Computer Science and Game Theory (cs.GT)",
+        "Multiagent Systems (cs.MA)"
+    ],
+    "keywords": null,
+    "num_pages": 21,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {},
+    "citationCount": 0,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null,
+        "ranking": null
+    },
+    "citations": [],
+    "referenceCount": 0,
+    "references": [],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

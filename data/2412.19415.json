@@ -1,0 +1,53 @@
+{
+    "arxiv_id": "2412.19415",
+    "title": "DIPS: Optimal Dynamic Index for Poisson $\\boldsymbolπ$ps Sampling",
+    "authors": [
+        {
+            "name": "J Huang",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "S Wang",
+            "citations_all": 2629,
+            "citations_recent": 2150,
+            "h_index_all": 29,
+            "h_index_recent": 27,
+            "i10_index_all": 49,
+            "i10_index_recent": 49
+        }
+    ],
+    "abstract": "This paper addresses the Poisson $\\pi$ps sampling problem, a topic of significant academic interest in various domains and with practical data mining applications, such as influence maximization. The problem includes a set $\\mathcal{S}$ of $n$ elements, where each element $v$ is assigned a weight $w(v)$ reflecting its importance. The goal is to generate a random subset $X$ of $\\mathcal{S}$, where each element $v \\in \\mathcal{S}$ is included in $X$ independently with probability $\\frac{c\\cdot w(v)}{\\sum_{v \\in \\mathcal{S}} w(v)}$, where $0<c\\leq 1$ is a constant. The subsets must be independent across different queries. While the Poisson $\\pi$ps sampling problem can be reduced to the well-studied subset sampling problem, updates in Poisson $\\pi$ps sampling, such as adding a new element or removing an element, would cause the probabilities of all $n$ elements to change in the corresponding subset sampling problem, making this approach impractical for dynamic scenarios. To address this, we propose a dynamic index specifically tailored for the Poisson $\\pi$ps sampling problem, supporting optimal expected $\\mathcal{O}(1)$ query time and $\\mathcal{O}(1)$ index update time, with an optimal $\\mathcal{O}(n)$ space cost. Our solution involves recursively partitioning the set by weights and ultimately using table lookup. The core of our solution lies in addressing the challenges posed by weight explosion and correlations between elements. Empirical evaluations demonstrate that our approach achieves significant speedups in update time while maintaining consistently competitive query time compared to the subset-sampling-based methods.",
+    "published_date": "2024-12-27T00:00:00",
+    "last_revised_date": "2024-12-27T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2412.19415.pdf",
+    "primary_category": "Databases (cs.DB)",
+    "categories": [
+        "Databases (cs.DB)"
+    ],
+    "keywords": null,
+    "num_pages": 12,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {},
+    "citationCount": 0,
+    "venue": {
+        "name": null,
+        "type": null,
+        "ranking": null
+    },
+    "citations": [],
+    "referenceCount": 0,
+    "references": [],
+    "influentialCitationCount": 0,
+    "embedding": null
+}
