@@ -1,0 +1,265 @@
+{
+    "arxiv_id": "2312.15861",
+    "title": "Towards Squeezing-Averse Virtual Try-On via Sequential Deformation",
+    "authors": [
+        {
+            "name": "SH Shim",
+            "citations_all": 39,
+            "citations_recent": 39,
+            "h_index_all": 3,
+            "h_index_recent": 3,
+            "i10_index_all": 2,
+            "i10_index_recent": 2
+        },
+        {
+            "name": "J Chung",
+            "citations_all": 243,
+            "citations_recent": 243,
+            "h_index_all": 4,
+            "h_index_recent": 4,
+            "i10_index_all": 3,
+            "i10_index_recent": 3
+        },
+        {
+            "name": "JP Heo",
+            "citations_all": 2215,
+            "citations_recent": 1413,
+            "h_index_all": 19,
+            "h_index_recent": 18,
+            "i10_index_all": 30,
+            "i10_index_recent": 27
+        }
+    ],
+    "abstract": "In this paper, we first investigate a visual quality degradation problem observed in recent high-resolution virtual try-on approach. The tendency is empirically found that the textures of clothes are squeezed at the sleeve, as visualized in the upper row of Fig.1(a). A main reason for the issue arises from a gradient conflict between two popular losses, the Total Variation (TV) and adversarial losses. Specifically, the TV loss aims to disconnect boundaries between the sleeve and torso in a warped clothing mask, whereas the adversarial loss aims to combine between them. Such contrary objectives feedback the misaligned gradients to a cascaded appearance flow estimation, resulting in undesirable squeezing artifacts. To reduce this, we propose a Sequential Deformation (SD-VITON) that disentangles the appearance flow prediction layers into TV objective-dominant (TVOB) layers and a task-coexistence (TACO) layer. Specifically, we coarsely fit the clothes onto a human body via the TVOB layers, and then keep on refining via the TACO layer. In addition, the bottom row of Fig.1(a) shows a different type of squeezing artifacts around the waist. To address it, we further propose that we first warp the clothes into a tucked-out shirts style, and then partially erase the texture from the warped clothes without hurting the smoothness of the appearance flows. Experimental results show that our SD-VITON successfully resolves both types of artifacts and outperforms the baseline methods. Source code will be available at this https URL.",
+    "published_date": "2023-12-26T00:00:00",
+    "last_revised_date": "2023-12-26T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2312.15861.pdf",
+    "primary_category": "Computer Vision and Pattern Recognition (cs.CV)",
+    "categories": [
+        "Computer Vision and Pattern Recognition (cs.CV)"
+    ],
+    "keywords": null,
+    "num_pages": 25,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 1,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2024": 6,
+        "2025": 14
+    },
+    "citationCount": 20,
+    "venue": {
+        "name": "AAAI Conference on Artificial Intelligence",
+        "type": "conference",
+        "ranking": "A"
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 67,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 59,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 5,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 49,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 78,
+            "citationCount": 7,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 7,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 98,
+            "citationCount": 21,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 52,
+            "citationCount": 25,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 45,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 159,
+            "citationCount": 21,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 37,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 10,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 15,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 160,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 42,
+            "citationCount": 315,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 53,
+            "citationCount": 291,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 49,
+            "citationCount": 266,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 346,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 421,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 51,
+            "citationCount": 1463,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 71,
+            "citationCount": 13552,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 53,
+            "citationCount": 639,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 61,
+            "citationCount": 15021,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 1065,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 45,
+            "citationCount": 706,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 71,
+            "citationCount": 10573,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 61,
+            "citationCount": 50876,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 3,
+    "embedding": null
+}

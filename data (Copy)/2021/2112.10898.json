@@ -1,0 +1,325 @@
+{
+    "arxiv_id": "2112.10898",
+    "title": "Load-balanced Gather-scatter Patterns for Sparse Deep Neural Networks",
+    "authors": [
+        {
+            "name": "F Sun",
+            "citations_all": 16745,
+            "citations_recent": 16072,
+            "h_index_all": 22,
+            "h_index_recent": 16,
+            "i10_index_all": 26,
+            "i10_index_recent": 19
+        },
+        {
+            "name": "M Qin",
+            "citations_all": 2656,
+            "citations_recent": 2366,
+            "h_index_all": 24,
+            "h_index_recent": 22,
+            "i10_index_all": 41,
+            "i10_index_recent": 38
+        },
+        {
+            "name": "T Zhang",
+            "citations_all": 1928,
+            "citations_recent": 1820,
+            "h_index_all": 16,
+            "h_index_recent": 16,
+            "i10_index_all": 17,
+            "i10_index_recent": 17
+        },
+        {
+            "name": "X Ma",
+            "citations_all": 4097,
+            "citations_recent": 3873,
+            "h_index_all": 34,
+            "h_index_recent": 33,
+            "i10_index_all": 50,
+            "i10_index_recent": 49
+        },
+        {
+            "name": "H Li",
+            "citations_all": 435,
+            "citations_recent": 285,
+            "h_index_all": 13,
+            "h_index_recent": 10,
+            "i10_index_all": 14,
+            "i10_index_recent": 11
+        },
+        {
+            "name": "J Luo",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "Z Zhao",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "YK Chen",
+            "citations_all": 6897,
+            "citations_recent": 1976,
+            "h_index_all": 43,
+            "h_index_recent": 17,
+            "i10_index_all": 130,
+            "i10_index_recent": 34
+        },
+        {
+            "name": "Y Xie",
+            "citations_all": 51103,
+            "citations_recent": 30809,
+            "h_index_all": 110,
+            "h_index_recent": 84,
+            "i10_index_all": 593,
+            "i10_index_recent": 420
+        }
+    ],
+    "abstract": "Deep neural networks (DNNs) have been proven to be effective in solving many real-life problems, but its high computation cost prohibits those models from being deployed to edge devices. Pruning, as a method to introduce zeros to model weights, has shown to be an effective method to provide good trade-offs between model accuracy and computation efficiency, and is a widely-used method to generate compressed models. However, the granularity of pruning makes important trade-offs. At the same sparsity level, a coarse-grained structured sparse pattern is more efficient on conventional hardware but results in worse accuracy, while a fine-grained unstructured sparse pattern can achieve better accuracy but is inefficient on existing hardware.\nOn the other hand, some modern processors are equipped with fast on-chip scratchpad memories and gather/scatter engines that perform indirect load and store operations on such memories. In this work, we propose a set of novel sparse patterns, named gather-scatter (GS) patterns, to utilize the scratchpad memories and gather/scatter engines to speed up neural network inferences. Correspondingly, we present a compact sparse format. The proposed set of sparse patterns, along with a novel pruning methodology, address the load imbalance issue and result in models with quality close to unstructured sparse models and computation efficiency close to structured sparse models. Our experiments show that GS patterns consistently make better trade-offs between accuracy and computation efficiency compared to conventional structured sparse patterns. GS patterns can reduce the runtime of the DNN components by two to three times at the same accuracy levels. This is confirmed on three different deep learning tasks and popular models, namely, GNMT for machine translation, ResNet50 for image recognition, and Japser for acoustic speech recognition.",
+    "published_date": "2021-12-20T00:00:00",
+    "last_revised_date": "2021-12-20T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2112.10898.pdf",
+    "primary_category": "Machine Learning (cs.LG)",
+    "categories": [
+        "Machine Learning (cs.LG)",
+        "Artificial Intelligence (cs.AI)"
+    ],
+    "keywords": null,
+    "num_pages": 11,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2023": 1
+    },
+    "citationCount": 1,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null,
+        "ranking": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 61,
+            "citationCount": 13,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 33,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 146,
+            "citationCount": 49403,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 28,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 56,
+            "citationCount": 169,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 39,
+            "citationCount": 46957,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 11,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 39,
+            "citationCount": 274,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 63,
+            "citationCount": 552,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 170,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 70,
+            "citationCount": 167,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 4632,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 450,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 1205,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 57,
+            "citationCount": 2640,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 22,
+            "citationCount": 262,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 253,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 53,
+            "citationCount": 7026,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 22,
+            "citationCount": 2423,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 54,
+            "citationCount": 210810,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 35,
+            "citationCount": 9318,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 7131,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 67509,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 69,
+            "citationCount": 39972,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 71,
+            "citationCount": 124120,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 13,
+            "citationCount": 5034,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 5,
+            "citationCount": 30292,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 12,
+            "citationCount": 2040,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 1645,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 63,
+            "citationCount": 104469,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 11,
+            "citationCount": 109,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 16,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 12,
+            "citationCount": 504,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 5016,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

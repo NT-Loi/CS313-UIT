@@ -11,7 +11,7 @@ async function getPaperData(id: string): Promise<Paper | null> {
   }
 
   try {
-    const dataDir = path.join(process.cwd(), "data");
+    const dataDir = path.join(process.cwd(), "../data");
     const filePath = path.join(dataDir, `${id}.json`);
 
     if (!fs.existsSync(filePath)) {
@@ -21,6 +21,10 @@ async function getPaperData(id: string): Promise<Paper | null> {
 
     const fileContent = fs.readFileSync(filePath, "utf8");
     const data = JSON.parse(fileContent);
+    // Ensure id exists (fallback to arxiv_id)
+    if (!data.id && data.arxiv_id) {
+      data.id = data.arxiv_id;
+    }
     return data as Paper;
   } catch (error) {
     console.error(`Lỗi đọc file data cho ID: ${id}`, error);

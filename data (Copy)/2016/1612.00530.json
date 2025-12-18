@@ -1,0 +1,193 @@
+{
+    "arxiv_id": "1612.00530",
+    "title": "Implementation and evaluation of data-compression algorithms for irregular-grid iterative methods on the PEZY-SC processor",
+    "authors": [
+        {
+            "name": "N Yoshifuji",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "R Sakamoto",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "K Nitadori",
+            "citations_all": 2821,
+            "citations_recent": 1367,
+            "h_index_all": 27,
+            "h_index_recent": 20,
+            "i10_index_all": 33,
+            "i10_index_recent": 26
+        },
+        {
+            "name": "J Makino",
+            "citations_all": 20020,
+            "citations_recent": 4425,
+            "h_index_all": 75,
+            "h_index_recent": 34,
+            "i10_index_all": 196,
+            "i10_index_recent": 91
+        }
+    ],
+    "abstract": "Iterative methods on irregular grids have been used widely in all areas of comptational science and engineering for solving partial differential equations with complex geometry. They provide the flexibility to express complex shapes with relatively low computational cost. However, the direction of the evolution of high-performance processors in the last two decades have caused serious degradation of the computational efficiency of iterative methods on irregular grids, because of relatively low memory bandwidth. Data compression can in principle reduce the necessary memory memory bandwidth of iterative methods and thus improve the efficiency. We have implemented several data compression algorithms on the PEZY-SC processor, using the matrix generated for the HPCG benchmark as an example. For the SpMV (Sparse Matrix-Vector multiplication) part of the HPCG benchmark, the best implementation without data compression achieved 11.6Gflops/chip, close to the theoretical limit due to the memory bandwidth. Our implementation with data compression has achieved 32.4Gflops. This is of course rather extreme case, since the grid used in HPCG is geometrically regular and thus its compression efficiency is very high. However, in real applications, it is in many cases possible to make a large part of the grid to have regular geometry, in particular when the resolution is high. Note that we do not need to change the structure of the program, except for the addition of the data compression/decompression subroutines. Thus, we believe the data compression will be very useful way to improve the performance of many applications which rely on the use of irregular grids.",
+    "published_date": "2016-12-02T00:00:00",
+    "last_revised_date": "2016-12-02T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/1612.00530.pdf",
+    "primary_category": "Mathematical Software (cs.MS)",
+    "categories": [
+        "Mathematical Software (cs.MS)",
+        "Numerical Analysis (math.NA)"
+    ],
+    "keywords": null,
+    "num_pages": 7,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2017": 1,
+        "2019": 2,
+        "2020": 2,
+        "2024": 1,
+        "2025": 1
+    },
+    "citationCount": 7,
+    "venue": {
+        "name": "Workshop on Irregular Applications: Architectures and Algorithms",
+        "type": "conference"
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 39,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 18,
+            "citationCount": 22,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 50,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 15,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 38,
+            "citationCount": 56,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 11,
+            "citationCount": 27,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 35,
+            "citationCount": 94,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 9,
+            "citationCount": 4,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 53,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 27,
+            "citationCount": 219,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 52,
+            "citationCount": 322,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 116,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 50,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 3,
+            "citationCount": 56,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 18,
+            "citationCount": 28,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

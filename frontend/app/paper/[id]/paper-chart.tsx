@@ -66,9 +66,18 @@ export function PaperChart({
         <Line
           type="monotone"
           dataKey={dataKey || "Lượt trích dẫn"}
-          stroke="#03045e"
+          stroke={chartConfig[dataKey || "Lượt trích dẫn"]?.color || "#03045e"}
           strokeWidth={2}
           dot={{ r: 4, fill: "#03045e" }}
+          activeDot={{ r: 6, strokeWidth: 0 }}
+        />
+        <Line
+          type="monotone"
+          dataKey="Dự báo"
+          stroke={chartConfig["Dự báo"]?.color || "#00b4d8"}
+          strokeWidth={2}
+          strokeDasharray="5 5"
+          dot={{ r: 4, fill: "#00b4d8" }}
           activeDot={{ r: 6, strokeWidth: 0 }}
         />
       </LineChart>

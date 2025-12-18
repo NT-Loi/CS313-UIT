@@ -16,23 +16,13 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 
-const attributionData = [
-  { feature: "0.325 = ShellWeight", value: 1.42 },
-  { feature: "1.103 = WholeWeight", value: 0.97 },
-  { feature: "0.301 = VisceraWeight", value: -0.79 },
-  { feature: "0.421 = ShuckedWeight", value: -0.38 },
-  { feature: "0.16 = Height", value: 0.19 },
-  { feature: "False = Sex_I", value: 0.06 },
-  { feature: "0.605 = Length", value: -0.05 },
-  { feature: "True = Sex_M", value: 0.02 },
-  { feature: "0.455 = Diameter", value: 0.0 },
-];
+import { useEffect, useState } from "react";
 
 const COLOR_POSITIVE = "#00b4d8";
 const COLOR_NEGATIVE = "#03045e";
 
 const chartConfig = {
-  value: {
+  weight: {
     label: "Contribution",
   },
 };
@@ -40,7 +30,7 @@ const chartConfig = {
 const CustomBarLabel = (props: any) => {
   const { x, y, width, height, value } = props;
   const isNegative = value < 0;
-  const formattedValue = (value > 0 ? "+" : "") + value.toFixed(2);
+  const formattedValue = (value > 0 ? "+" : "") + value.toFixed(3);
   const labelX = isNegative ? x - 5 : x + width + 5;
   const textAnchor = isNegative ? "end" : "start";
 
@@ -51,7 +41,7 @@ const CustomBarLabel = (props: any) => {
       dy={4}
       fill="#caf0f8"
       textAnchor={textAnchor}
-      fontSize={12}
+      fontSize={10}
       fontWeight="bold"
     >
       {formattedValue}
@@ -59,26 +49,73 @@ const CustomBarLabel = (props: any) => {
   );
 };
 
-export function AttributionChart() {
+interface AttributionChartProps {
+  paperId: string;
+}
+
+export function AttributionChart({ paperId }: AttributionChartProps) {
+  const [data, setData] = useState<{ feature: string; weight: number }[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchAttribution = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(`http://localhost:8000/attribution/${paperId}`);
+        if (!response.ok) throw new Error("Failed to fetch attribution");
+        const result = await response.json();
+        setData(result.attribution);
+      } catch (error) {
+        console.error("Error fetching attribution:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (paperId) {
+      fetchAttribution();
+    }
+  }, [paperId]);
+
+  if (loading) {
+    return (
+      <div className="flex h-full w-full items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-[#90e0ef] border-t-transparent" />
+      </div>
+    );
+  }
+
+  if (data.length === 0) {
+    return (
+      <div className="flex h-full w-full items-center justify-center text-[#caf0f8]/60">
+        Không có dữ liệu giải thích.
+      </div>
+    );
+  }
+
+  // Calculate max absolute weight for domain
+  const maxAbs = Math.max(...data.map(d => Math.abs(d.weight)), 0.1);
+  const domain: [number, number] = [-maxAbs * 1.5, maxAbs * 1.5];
+
   return (
     <ChartContainer config={chartConfig} className="h-full w-full">
       <BarChart
         layout="vertical"
-        data={attributionData}
-        margin={{ top: 5, right: 50, left: 30, bottom: 5 }}
+        data={data}
+        margin={{ top: 5, right: 60, left: 10, bottom: 5 }}
       >
         <CartesianGrid strokeDasharray="3 3" stroke="#caf0f8" strokeOpacity={0.2} />
 
-        <XAxis type="number" domain={[-1.5, 1.5]} stroke="#caf0f8" fontSize={12} />
+        <XAxis type="number" domain={domain} hide />
 
         <YAxis
           type="category"
           dataKey="feature"
           stroke="#caf0f8"
-          fontSize={12}
+          fontSize={11}
           tickLine={false}
           axisLine={false}
-          width={150}
+          width={130}
         />
 
         <ChartTooltip
@@ -91,14 +128,14 @@ export function AttributionChart() {
           }
         />
 
-        <Bar dataKey="value" radius={4}>
-          {attributionData.map((entry, index) => (
+        <Bar dataKey="weight" radius={4}>
+          {data.map((entry, index) => (
             <Cell
               key={`cell-${index}`}
-              fill={entry.value >= 0 ? COLOR_POSITIVE : COLOR_NEGATIVE}
+              fill={entry.weight >= 0 ? COLOR_POSITIVE : COLOR_NEGATIVE}
             />
           ))}
-          <LabelList dataKey="value" content={<CustomBarLabel />} />
+          <LabelList dataKey="weight" content={<CustomBarLabel />} />
         </Bar>
       </BarChart>
     </ChartContainer>

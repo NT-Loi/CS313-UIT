@@ -1,0 +1,204 @@
+{
+    "arxiv_id": "2112.11115",
+    "title": "Soft Actor-Critic with Cross-Entropy Policy Optimization",
+    "authors": [
+        {
+            "name": "Z Shi",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "SPN Singh",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        }
+    ],
+    "abstract": "Soft Actor-Critic (SAC) is one of the state-of-the-art off-policy reinforcement learning (RL) algorithms that is within the maximum entropy based RL framework. SAC is demonstrated to perform very well in a list of continous control tasks with good stability and robustness. SAC learns a stochastic Gaussian policy that can maximize a trade-off between total expected reward and the policy entropy. To update the policy, SAC minimizes the KL-Divergence between the current policy density and the soft value function density. Reparameterization trick is then used to obtain the approximate gradient of this divergence. In this paper, we propose Soft Actor-Critic with Cross-Entropy Policy Optimization (SAC-CEPO), which uses Cross-Entropy Method (CEM) to optimize the policy network of SAC. The initial idea is to use CEM to iteratively sample the closest distribution towards the soft value function density and uses the resultant distribution as a target to update the policy network. For the purpose of reducing the computational complexity, we also introduce a decoupled policy structure that decouples the Gaussian policy into one policy that learns the mean and one other policy that learns the deviation such that only the mean policy is trained by CEM. We show that this decoupled policy structure does converge to a optimal and we also demonstrate by experiments that SAC-CEPO achieves competitive performance against the original SAC.",
+    "published_date": "2021-12-21T00:00:00",
+    "last_revised_date": "2021-12-21T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2112.11115.pdf",
+    "primary_category": "Machine Learning (cs.LG)",
+    "categories": [
+        "Machine Learning (cs.LG)"
+    ],
+    "keywords": null,
+    "num_pages": 9,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2022": 1,
+        "2023": 2,
+        "2024": 2,
+        "2025": 3
+    },
+    "citationCount": 8,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null,
+        "ranking": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 119,
+            "citationCount": 4,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 277,
+            "citationCount": 31,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 54,
+            "citationCount": 31,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 111,
+            "citationCount": 54,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 64,
+            "citationCount": 11,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 19,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 37,
+            "citationCount": 48,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 32,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 37,
+            "citationCount": 173,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 49,
+            "citationCount": 1581,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 50,
+            "citationCount": 5889,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 42,
+            "citationCount": 9537,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 216,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 2076,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 14,
+            "citationCount": 22645,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 47,
+            "citationCount": 637,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 5304,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 86,
+            "citationCount": 1737,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 35,
+            "citationCount": 14246,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 7297,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 23,
+            "citationCount": 4231,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 1662,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 22,
+            "citationCount": 7211,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 2416,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 2978,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

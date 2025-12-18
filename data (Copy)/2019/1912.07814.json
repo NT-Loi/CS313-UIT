@@ -1,0 +1,409 @@
+{
+    "arxiv_id": "1912.07814",
+    "title": "A Unified Framework for Speech Separation",
+    "authors": [
+        {
+            "name": "F Bahmaninezhad",
+            "citations_all": 359,
+            "citations_recent": 273,
+            "h_index_all": 10,
+            "h_index_recent": 8,
+            "i10_index_all": 10,
+            "i10_index_recent": 6
+        },
+        {
+            "name": "SX Zhang",
+            "citations_all": 3687,
+            "citations_recent": 3162,
+            "h_index_all": 33,
+            "h_index_recent": 30,
+            "i10_index_all": 61,
+            "i10_index_recent": 53
+        },
+        {
+            "name": "Y Xu",
+            "citations_all": 7551,
+            "citations_recent": 5461,
+            "h_index_all": 41,
+            "h_index_recent": 36,
+            "i10_index_all": 67,
+            "i10_index_recent": 64
+        },
+        {
+            "name": "M Yu",
+            "citations_all": 2951,
+            "citations_recent": 2836,
+            "h_index_all": 27,
+            "h_index_recent": 27,
+            "i10_index_all": 48,
+            "i10_index_recent": 46
+        },
+        {
+            "name": "JHL Hansen",
+            "citations_all": 30067,
+            "citations_recent": 9095,
+            "h_index_all": 77,
+            "h_index_recent": 40,
+            "i10_index_all": 491,
+            "i10_index_recent": 224
+        },
+        {
+            "name": "D Yu",
+            "citations_all": 75281,
+            "citations_recent": 43259,
+            "h_index_all": 105,
+            "h_index_recent": 82,
+            "i10_index_all": 430,
+            "i10_index_recent": 345
+        }
+    ],
+    "abstract": "Speech separation refers to extracting each individual speech source in a given mixed signal. Recent advancements in speech separation and ongoing research in this area, have made these approaches as promising techniques for pre-processing of naturalistic audio streams. After incorporating deep learning techniques into speech separation, performance on these systems is improving faster. The initial solutions introduced for deep learning based speech separation analyzed the speech signals into time-frequency domain with STFT; and then encoded mixed signals were fed into a deep neural network based separator. Most recently, new methods are introduced to separate waveform of the mixed signal directly without analyzing them using STFT. Here, we introduce a unified framework to include both spectrogram and waveform separations into a single structure, while being only different in the kernel function used to encode and decode the data; where, both can achieve competitive performance. This new framework provides flexibility; in addition, depending on the characteristics of the data, or limitations of the memory and latency can set the hyper-parameters to flow in a pipeline of the framework which fits the task properly. We extend single-channel speech separation into multi-channel framework with end-to-end training of the network while optimizing the speech separation criterion (i.e., Si-SNR) directly. We emphasize on how tied kernel functions for calculating spatial features, encoder, and decoder in multi-channel framework can be effective. We simulate spatialized reverberate data for both WSJ0 and LibriSpeech corpora here, and while these two sets of data are different in the matter of size and duration, the effect of capturing shorter and longer dependencies of previous/+future samples are studied in detail. We report SDR, Si-SNR and PESQ to evaluate the performance of developed solutions.",
+    "published_date": "2019-12-17T00:00:00",
+    "last_revised_date": "2019-12-17T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/1912.07814.pdf",
+    "primary_category": "Machine Learning (cs.LG)",
+    "categories": [
+        "Machine Learning (cs.LG)",
+        "Audio and Speech Processing (eess.AS)",
+        "Machine Learning (stat.ML)"
+    ],
+    "keywords": null,
+    "num_pages": 12,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2020": 1,
+        "2022": 2,
+        "2023": 1
+    },
+    "citationCount": 4,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null,
+        "ranking": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 55,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 53,
+            "citationCount": 62,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 35,
+            "citationCount": 644,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 52,
+            "citationCount": 6,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 48,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 26,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 23,
+            "citationCount": 81,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 78,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 143,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 79,
+            "citationCount": 1908,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 80,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 271,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 29,
+            "citationCount": 9,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 129,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 40,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 24,
+            "citationCount": 184,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 19,
+            "citationCount": 113,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 22,
+            "citationCount": 73,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 701,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 30,
+            "citationCount": 661,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 84,
+            "citationCount": 283,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 211,
+            "citationCount": 1433,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 160,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 24,
+            "citationCount": 242,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 21,
+            "citationCount": 72,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 62,
+            "citationCount": 746,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 19,
+            "citationCount": 416,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 21,
+            "citationCount": 826,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 438,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 890,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 35,
+            "citationCount": 758,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 365,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 37,
+            "citationCount": 98,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 1363,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 21,
+            "citationCount": 646,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 54,
+            "citationCount": 44243,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 19183,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 26,
+            "citationCount": 154847,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 444,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 1399,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 15,
+            "citationCount": 653,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 35,
+            "citationCount": 270,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 20,
+            "citationCount": 3057,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 15,
+            "citationCount": 3336,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 20,
+            "citationCount": 4155,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 2480,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 56,
+            "citationCount": 203,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 5961,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 12,
+            "citationCount": 107,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 14,
+            "citationCount": 404,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 146,
+            "citationCount": 366,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

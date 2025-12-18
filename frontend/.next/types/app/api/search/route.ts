@@ -1,4 +1,4 @@
-// File: D:\FE_CS313\CS313-UIT\frontend\app\api\search\route.ts
+// File: /home/nt-loi/CS313-UIT/frontend/app/api/search/route.ts
 import * as entry from '../../../../../app/api/search/route.js'
 import type { NextRequest } from 'next/server.js'
 

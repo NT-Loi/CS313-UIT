@@ -1,0 +1,348 @@
+{
+    "arxiv_id": "2212.12695",
+    "title": "Automatic stabilization of finite-element simulations using neural networks and hierarchical matrices",
+    "authors": [
+        {
+            "name": "T Służalec",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "M Dobija",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "A Paszyńska",
+            "citations_all": 565,
+            "citations_recent": 205,
+            "h_index_all": 13,
+            "h_index_recent": 8,
+            "i10_index_all": 16,
+            "i10_index_recent": 8
+        },
+        {
+            "name": "I Muga",
+            "citations_all": 1078,
+            "citations_recent": 603,
+            "h_index_all": 19,
+            "h_index_recent": 14,
+            "i10_index_all": 28,
+            "i10_index_recent": 19
+        },
+        {
+            "name": "M Łoś",
+            "citations_all": 494,
+            "citations_recent": 377,
+            "h_index_all": 11,
+            "h_index_recent": 11,
+            "i10_index_all": 14,
+            "i10_index_recent": 12
+        },
+        {
+            "name": "M Paszyński",
+            "citations_all": 2970,
+            "citations_recent": 1087,
+            "h_index_all": 29,
+            "h_index_recent": 16,
+            "i10_index_all": 73,
+            "i10_index_recent": 37
+        }
+    ],
+    "abstract": "Petrov-Galerkin formulations with optimal test functions allow for the stabilization of finite element simulations. In particular, given a discrete trial space, the optimal test space induces a numerical scheme delivering the best approximation in terms of a problem-dependent energy norm. This ideal approach has two shortcomings: first, we need to explicitly know the set of optimal test functions; and second, the optimal test functions may have large supports inducing expensive dense linear systems. Nevertheless, parametric families of PDEs are an example where it is worth investing some (offline) computational effort to obtain stabilized linear systems that can be solved efficiently, for a given set of parameters, in an online stage. Therefore, as a remedy for the first shortcoming, we explicitly compute (offline) a function mapping any PDE-parameter, to the matrix of coefficients of optimal test functions (in a basis expansion) associated with that PDE-parameter. Next, as a remedy for the second shortcoming, we use the low-rank approximation to hierarchically compress the (non-square) matrix of coefficients of optimal test functions. In order to accelerate this process, we train a neural network to learn a critical bottleneck of the compression algorithm (for a given set of PDE-parameters). When solving online the resulting (compressed) Petrov-Galerkin formulation, we employ a GMRES iterative solver with inexpensive matrix-vector multiplications thanks to the low-rank features of the compressed matrix. We perform experiments showing that the full online procedure as fast as the original (unstable) Galerkin approach. In other words, we get the stabilization with hierarchical matrices and neural networks practically for free. We illustrate our findings by means of 2D Eriksson-Johnson and Hemholtz model problems.",
+    "published_date": "2022-12-24T00:00:00",
+    "last_revised_date": "2022-12-24T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2212.12695.pdf",
+    "primary_category": "Numerical Analysis (math.NA)",
+    "categories": [
+        "Numerical Analysis (math.NA)",
+        "Machine Learning (cs.LG)"
+    ],
+    "keywords": null,
+    "num_pages": 28,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2023": 1,
+        "2024": 2,
+        "2025": 2
+    },
+    "citationCount": 5,
+    "venue": {
+        "name": "Computer Methods in Applied Mechanics and Engineering",
+        "type": "journal",
+        "ranking": "Q1"
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 15,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 11,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 421,
+            "citationCount": 68,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 619,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 38,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 37,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 57,
+            "citationCount": 19,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 10,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 63,
+            "citationCount": 6,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 9,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 8,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 59,
+            "citationCount": 19,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 7,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 9,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 8,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 3402,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 66,
+            "citationCount": 14,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 49,
+            "citationCount": 36,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 23,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 30,
+            "citationCount": 4,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 391,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 109,
+            "citationCount": 23,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 26,
+            "citationCount": 154618,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 30,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 11,
+            "citationCount": 116,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 94,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 265,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 1117,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 201,
+            "citationCount": 15069,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 29,
+            "citationCount": 1043,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 12,
+            "citationCount": 770,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 4,
+            "citationCount": 294,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 26220,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 124,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 13,
+            "citationCount": 1,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 79,
+            "citationCount": 360,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 54,
+            "citationCount": 93,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 2375,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 39,
+            "citationCount": 2206,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const query = searchParams.get("query")?.toLowerCase() || "";
 
-  const dataDir = path.join(process.cwd(), "data");
+  const dataDir = path.join(process.cwd(), "../data");
   if (!fs.existsSync(dataDir)) {
     return NextResponse.json([], { status: 200 });
   }
@@ -25,7 +25,7 @@ export async function GET(request: Request) {
         id,
         title: content.title || "Untitled Paper",
         abstract: content.abstract || "No abstract available.",
-        pdf_url: content.pdf_url || null,
+        authors: content.authors || "No authors information.",
         citations_by_year: content.citations_by_year || {},
         ...content,
       };

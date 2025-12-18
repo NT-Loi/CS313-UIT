@@ -1,0 +1,255 @@
+{
+    "arxiv_id": "1312.0285",
+    "title": "Distributed Data Placement via Graph Partitioning",
+    "authors": [
+        {
+            "name": "L Golab",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "M Hadjieleftheriou",
+            "citations_all": 7396,
+            "citations_recent": 1589,
+            "h_index_all": 42,
+            "h_index_recent": 21,
+            "i10_index_all": 61,
+            "i10_index_recent": 32
+        },
+        {
+            "name": "H Karloff",
+            "citations_all": 8532,
+            "citations_recent": 2106,
+            "h_index_all": 44,
+            "h_index_recent": 22,
+            "i10_index_all": 75,
+            "i10_index_recent": 40
+        },
+        {
+            "name": "B Saha",
+            "citations_all": 3933,
+            "citations_recent": 2013,
+            "h_index_all": 31,
+            "h_index_recent": 25,
+            "i10_index_all": 68,
+            "i10_index_recent": 52
+        }
+    ],
+    "abstract": "With the widespread use of shared-nothing clusters of servers, there has been a proliferation of distributed object stores that offer high availability, reliability and enhanced performance for MapReduce-style workloads. However, relational workloads cannot always be evaluated efficiently using MapReduce without extensive data migrations, which cause network congestion and reduced query throughput. We study the problem of computing data placement strategies that minimize the data communication costs incurred by typical relational query workloads in a distributed setting.\nOur main contribution is a reduction of the data placement problem to the well-studied problem of {\\sc Graph Partitioning}, which is NP-Hard but for which efficient approximation algorithms exist. The novelty and significance of this result lie in representing the communication cost exactly and using standard graphs instead of hypergraphs, which were used in prior work on data placement that optimized for different objectives (not communication cost).\nWe study several practical extensions of the problem: with load balancing, with replication, with materialized views, and with complex query plans consisting of sequences of intermediate operations that may be computed on different servers. We provide integer linear programs (IPs) that may be used with any IP solver to find an optimal data placement. For the no-replication case, we use publicly available graph partitioning libraries (e.g., METIS) to efficiently compute nearly-optimal solutions. For the versions with replication, we introduce two heuristics that utilize the {\\sc Graph Partitioning} solution of the no-replication case. Using the TPC-DS workload, it may take an IP solver weeks to compute an optimal data placement, whereas our reduction produces nearly-optimal solutions in seconds.",
+    "published_date": "2013-12-01T00:00:00",
+    "last_revised_date": "2013-12-01T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/1312.0285.pdf",
+    "primary_category": "Databases (cs.DB)",
+    "categories": [
+        "Databases (cs.DB)"
+    ],
+    "keywords": null,
+    "num_pages": 12,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2013": 1,
+        "2016": 1,
+        "2017": 3,
+        "2018": 1,
+        "2019": 3,
+        "2023": 1,
+        "2025": 1
+    },
+    "citationCount": 11,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null,
+        "ranking": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 43,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 7,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 94,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 16,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 39,
+            "citationCount": 21,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 10,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 22,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 54,
+            "citationCount": 52,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 30,
+            "citationCount": 132,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 16,
+            "citationCount": 273,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 432,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 12,
+            "citationCount": 111,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 4607,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 52,
+            "citationCount": 5635,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 20,
+            "citationCount": 454,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 26,
+            "citationCount": 247,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 492,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 67,
+            "citationCount": 711,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 88,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 18,
+            "citationCount": 150,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 9,
+            "citationCount": 267,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 81,
+            "citationCount": 45,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

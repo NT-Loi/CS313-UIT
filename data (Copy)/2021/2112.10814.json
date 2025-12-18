@@ -1,0 +1,138 @@
+{
+    "arxiv_id": "2112.10814",
+    "title": "Checkpoint-Restart Libraries Must Become More Fault Tolerant",
+    "authors": [
+        {
+            "name": "A Skjellum",
+            "citations_all": 17941,
+            "citations_recent": 4434,
+            "h_index_all": 43,
+            "h_index_recent": 28,
+            "i10_index_all": 152,
+            "i10_index_recent": 69
+        },
+        {
+            "name": "D Schafer",
+            "citations_all": 187,
+            "citations_recent": 186,
+            "h_index_all": 8,
+            "h_index_recent": 8,
+            "i10_index_all": 7,
+            "i10_index_recent": 7
+        }
+    ],
+    "abstract": "Production MPI codes need checkpoint-restart (CPR) support. Clearly, checkpoint-restart libraries must be fault tolerant lest they open up a window of vulnerability for failures with byzantine outcomes. But, certain popular libraries that leverage MPI are evidently not fault tolerant. Nowadays, fault detection with automatic recovery without batch requeueing is a strong requirement for production environments. Thus, allowing deadlock and setting long timeouts are suboptimal for fault detection even when paired with conservative recovery from the penultimate checkpoint.\nWhen MPI is used as a communication mechanism within a CPR library, such libraries must offer fault-tolerant extensions with minimal detection, isolation, mitigation, and potential recovery semantics to aid the CPR's library fail-backward. Communication between MPI and the checkpoint library regarding system health may be valuable. For fault-tolerant MPI programs (e.g., using APIs like FA-MPI, Stages/Reinit, or ULFM), the checkpoint library must cooperate with the extended model or else invalidate fault-tolerant operation.",
+    "published_date": "2021-12-20T00:00:00",
+    "last_revised_date": "2021-12-20T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2112.10814.pdf",
+    "primary_category": "Distributed, Parallel, and Cluster Computing (cs.DC)",
+    "categories": [
+        "Distributed, Parallel, and Cluster Computing (cs.DC)"
+    ],
+    "keywords": null,
+    "num_pages": 3,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {},
+    "citationCount": 0,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null,
+        "ranking": null
+    },
+    "citations": [],
+    "referenceCount": 14,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 18,
+            "citationCount": 6,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 26,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 6,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 13,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 29,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 56,
+            "citationCount": 55,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 23,
+            "citationCount": 11,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 12,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 605,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 29,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 10,
+            "citationCount": 482,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 140,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

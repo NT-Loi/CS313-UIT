@@ -1,0 +1,351 @@
+{
+    "arxiv_id": "1712.04303",
+    "title": "RLWS: A Reinforcement Learning based GPU Warp Scheduler",
+    "authors": [
+        {
+            "name": "J Anantpur",
+            "citations_all": 201,
+            "citations_recent": 71,
+            "h_index_all": 6,
+            "h_index_recent": 5,
+            "i10_index_all": 5,
+            "i10_index_recent": 2
+        },
+        {
+            "name": "NG Dwarakanath",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "S Kalyanakrishnan",
+            "citations_all": 3580,
+            "citations_recent": 2261,
+            "h_index_all": 22,
+            "h_index_recent": 18,
+            "i10_index_all": 32,
+            "i10_index_recent": 20
+        },
+        {
+            "name": "S Bhatnagar",
+            "citations_all": 8475,
+            "citations_recent": 4498,
+            "h_index_all": 39,
+            "h_index_recent": 26,
+            "i10_index_all": 107,
+            "i10_index_recent": 64
+        },
+        {
+            "name": "R Govindarajan",
+            "citations_all": 3521,
+            "citations_recent": 571,
+            "h_index_all": 31,
+            "h_index_recent": 10,
+            "i10_index_all": 70,
+            "i10_index_recent": 14
+        }
+    ],
+    "abstract": "The Streaming Multiprocessors (SMs) of a Graphics Processing Unit (GPU) execute instructions from a group of consecutive threads, called warps. At each cycle, an SM schedules a warp from a group of active warps and can context switch among the active warps to hide various stalls. Hence the performance of warp scheduler is critical to the performance of GPU. Several heuristic warp scheduling algorithms have been proposed which work well only for the situations they are designed for. GPU workloads are becoming very diverse in nature and hence one heuristic may not work for all cases. To work well over a diverse range of workloads, which might exhibit hitherto unseen characteristics, a warp scheduling algorithm must be able to adapt on-line.\nWe propose a Reinforcement Learning based Warp Scheduler (RLWS) which learns to schedule warps based on the current state of the core and the long-term benefits of scheduling actions, adapting not only to different types of workloads, but also to different execution phases in each workload. As the design space involving the state variables and the parameters (such as learning and exploration rates, reward and penalty values) used by RLWS is large, we use Genetic Algorithm to identify the useful subset of state variables and parameter values. We evaluated the proposed RLWS using the GPGPU-SIM simulator on a large number of workloads from the Rodinia, Parboil, CUDA-SDK and GPGPU-SIM benchmark suites and compared with other state-of-the-art warp scheduling methods. Our RL based implementation achieved either the best or very close to the best performance in 80\\% of kernels with an average speedup of 1.06x over the Loose Round Robin strategy and 1.07x over the Two-Level strategy.",
+    "published_date": "2017-11-17T00:00:00",
+    "last_revised_date": "2017-11-17T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/1712.04303.pdf",
+    "primary_category": "Distributed, Parallel, and Cluster Computing (cs.DC)",
+    "categories": [
+        "Distributed, Parallel, and Cluster Computing (cs.DC)"
+    ],
+    "keywords": null,
+    "num_pages": 10,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2021": 1,
+        "2022": 2,
+        "2024": 1,
+        "2025": 1
+    },
+    "citationCount": 5,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null,
+        "ranking": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 58,
+            "citationCount": 4,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 56,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 42,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 244,
+            "citationCount": 2747,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 481,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 1534,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 26,
+            "citationCount": 28,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 45,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 51,
+            "citationCount": 436,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 41,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 24,
+            "citationCount": 17,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 95,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 39,
+            "citationCount": 39,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 87,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 85,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 21,
+            "citationCount": 91,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 47,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 27,
+            "citationCount": 72,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 37,
+            "citationCount": 154,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 104,
+            "citationCount": 138,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 206,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 53,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 57,
+            "citationCount": 295,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 29,
+            "citationCount": 72,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 406,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 19,
+            "citationCount": 55,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 62,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 432,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 84,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 39,
+            "citationCount": 278,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 29,
+            "citationCount": 191,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 273,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 30,
+            "citationCount": 2965,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 1646,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 55,
+            "citationCount": 508,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 527,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 42,
+            "citationCount": 253,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 13,
+            "citationCount": 809,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 15,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 1,
+            "citationCount": 60666,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 1,
+            "citationCount": 85,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

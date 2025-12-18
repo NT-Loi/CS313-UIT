@@ -1,0 +1,256 @@
+{
+    "arxiv_id": "1412.0159",
+    "title": "Amortized Analysis on Asynchronous Gradient Descent",
+    "authors": [
+        {
+            "name": "YK Cheung",
+            "citations_all": 676,
+            "citations_recent": 531,
+            "h_index_all": 14,
+            "h_index_recent": 13,
+            "i10_index_all": 19,
+            "i10_index_recent": 16
+        },
+        {
+            "name": "R Cole",
+            "citations_all": 13296,
+            "citations_recent": 2431,
+            "h_index_all": 58,
+            "h_index_recent": 26,
+            "i10_index_all": 124,
+            "i10_index_recent": 57
+        }
+    ],
+    "abstract": "Gradient descent is an important class of iterative algorithms for minimizing convex functions. Classically, gradient descent has been a sequential and synchronous process. Distributed and asynchronous variants of gradient descent have been studied since the 1980s, and they have been experiencing a resurgence due to demand from large-scale machine learning problems running on multi-core processors.\nWe provide a version of asynchronous gradient descent (AGD) in which communication between cores is minimal and for which there is little synchronization overhead. We also propose a new timing model for its analysis. With this model, we give the first amortized analysis of AGD on convex functions. The amortization allows for bad updates (updates that increase the value of the convex function); in contrast, most prior work makes the strong assumption that every update must be significantly improving.\nTypically, the step sizes used in AGD are smaller than those used in its synchronous counterpart. We provide a method to determine the step sizes in AGD based on the Hessian entries for the convex function. In certain circumstances, the resulting step sizes are a constant fraction of those used in the corresponding synchronous algorithm, enabling the overall performance of AGD to improve linearly with the number of cores.\nWe give two applications of our amortized analysis.",
+    "published_date": "2014-11-29T00:00:00",
+    "last_revised_date": "2014-11-29T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/1412.0159.pdf",
+    "primary_category": "Optimization and Control (math.OC)",
+    "categories": [
+        "Optimization and Control (math.OC)",
+        "Computer Science and Game Theory (cs.GT)"
+    ],
+    "keywords": null,
+    "num_pages": 40,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2013": 1,
+        "2015": 1,
+        "2016": 2,
+        "2018": 3,
+        "2019": 2,
+        "2020": 2,
+        "2021": 3
+    },
+    "citationCount": 14,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null,
+        "ranking": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 56,
+            "citationCount": 12,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 41,
+            "citationCount": 425,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 57,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 76,
+            "citationCount": 28,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 44,
+            "citationCount": 11,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 35,
+            "citationCount": 16,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 52,
+            "citationCount": 8,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 46,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 21,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 49,
+            "citationCount": 6,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 68,
+            "citationCount": 79,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 20,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 68,
+            "citationCount": 79,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 34,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 51,
+            "citationCount": 1459,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 63,
+            "citationCount": 24,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 29,
+            "citationCount": 2318,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 54,
+            "citationCount": 11,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 27,
+            "citationCount": 14,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 395,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 1650,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 64,
+            "citationCount": 72,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 80,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 95,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 22,
+            "citationCount": 74,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 519,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 19,
+            "citationCount": 169,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 26,
+            "citationCount": 2043,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 159,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 21,
+            "citationCount": 561,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 240,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 1,
+    "embedding": null
+}

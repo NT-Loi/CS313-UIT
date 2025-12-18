@@ -1,4 +1,4 @@
-// File: D:\FE_CS313\CS313-UIT\frontend\app\layout.tsx
+// File: /home/nt-loi/CS313-UIT/frontend/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

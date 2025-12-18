@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import BackgroundParticles from "@/components/BackgroundParticles";
@@ -42,23 +42,73 @@ export function PaperClientView({ paper }: PaperViewProps) {
     { name: "2024", [dataKey]: 85 },
   ];
 
+  const [futureCitations, setFutureCitations] = useState<Record<string, number>>({});
+
   const citationsByYear = paper?.citations_by_year;
   const processedChartData = citationsByYear
     ? Object.entries(citationsByYear).map(([year, count]) => ({
-        name: year,
-        [dataKey]: count,
-      }))
+      name: year,
+      [dataKey]: count,
+    }))
     : [];
 
+  const futureChartData = Object.entries(futureCitations).map(([key, count]) => {
+    const year = key.replace("citations_", "");
+    return {
+      name: year,
+      "Dự báo": count,
+    };
+  });
+
   const chartDataToShow =
-    processedChartData.length > 0 ? processedChartData : sampleData;
+    processedChartData.length > 0 || futureChartData.length > 0
+      ? [...processedChartData]
+      : sampleData;
+
+  if (chartDataToShow !== sampleData) {
+    futureChartData.forEach((futureItem) => {
+      chartDataToShow.push({
+        name: futureItem.name,
+        "Dự báo": futureItem["Dự báo"],
+      } as any);
+    });
+
+    if (processedChartData.length > 0 && futureChartData.length > 0) {
+      const lastHistory = chartDataToShow[processedChartData.length - 1];
+      (lastHistory as any)["Dự báo"] = (lastHistory as any)[dataKey];
+    }
+  }
 
   const chartConfig = {
     [dataKey]: {
       label: dataKey,
-      color: "#8884d8",
+      color: "#03045e",
+    },
+    "Dự báo": {
+      label: "Dự báo",
+      color: "#00b4d8",
     },
   } satisfies ChartConfig;
+
+
+  useEffect(() => {
+    if (paper) {
+      const fetchFutureCitations = async () => {
+        try {
+          const response = await fetch(`http://localhost:8000/predict/${paper.id}`);
+          console.log(response);
+          if (!response.ok) {
+            throw new Error("Failed to fetch future citations");
+          }
+          const data = await response.json();
+          setFutureCitations(data.prediction);
+        } catch (error) {
+          console.error("Error fetching future citations:", error);
+        }
+      };
+      fetchFutureCitations();
+    }
+  }, [paper]);
 
   return (
     <main className="relative flex flex-col items-center h-screen overflow-hidden">
@@ -130,7 +180,7 @@ export function PaperClientView({ paper }: PaperViewProps) {
                     value="attribution"
                     className="w-full data-[state=active]:bg-white/20 data-[state=active]:text-[#90e0ef] data-[state=active]:font-semibold text-neutral-300"
                   >
-                    Future Attribution
+                    Feature Attribution
                   </TabsTrigger>
                 </TabsList>
 
@@ -143,7 +193,7 @@ export function PaperClientView({ paper }: PaperViewProps) {
                 </TabsContent>
 
                 <TabsContent value="attribution" className="mt-4 h-full flex-grow">
-                  <AttributionChart />
+                  {paper && <AttributionChart paperId={paper.id} />}
                 </TabsContent>
               </Tabs>
             </aside>

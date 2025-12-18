@@ -1,0 +1,131 @@
+{
+    "arxiv_id": "1912.07127",
+    "title": "Sepsis World Model: A MIMIC-based OpenAI Gym \"World Model\" Simulator for Sepsis Treatment",
+    "authors": [
+        {
+            "name": "A Kiani",
+            "citations_all": 656,
+            "citations_recent": 603,
+            "h_index_all": 8,
+            "h_index_recent": 8,
+            "i10_index_all": 6,
+            "i10_index_recent": 6
+        },
+        {
+            "name": "C Wang",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "A Xu",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        }
+    ],
+    "abstract": "Sepsis is a life-threatening condition caused by the body's response to an infection. In order to treat patients with sepsis, physicians must control varying dosages of various antibiotics, fluids, and vasopressors based on a large number of variables in an emergency setting. In this project we employ a \"world model\" methodology to create a simulator that aims to predict the next state of a patient given a current state and treatment action. In doing so, we hope our simulator learns from a latent and less noisy representation of the EHR data. Using historical sepsis patient records from the MIMIC dataset, our method creates an OpenAI Gym simulator that leverages a Variational Auto-Encoder and a Mixture Density Network combined with a RNN (MDN-RNN) to model the trajectory of any sepsis patient in the hospital. To reduce the effects of noise, we sample from a generated distribution of next steps during simulation and have the option of introducing uncertainty into our simulator by controlling the \"temperature\" variable. It is worth noting that we do not have access to the ground truth for the best policy because we can only evaluate learned policies by real-world experimentation or expert feedback. Instead, we aim to study our simulator model's performance by evaluating the similarity between our environment's rollouts with the real EHR data and assessing its viability for learning a realistic policy for sepsis treatment using Deep Q-Learning.",
+    "published_date": "2019-12-15T00:00:00",
+    "last_revised_date": "2019-12-15T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/1912.07127.pdf",
+    "primary_category": "Machine Learning (cs.LG)",
+    "categories": [
+        "Machine Learning (cs.LG)",
+        "Machine Learning (stat.ML)"
+    ],
+    "keywords": null,
+    "num_pages": 10,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2021": 2,
+        "2022": 1,
+        "2023": 1,
+        "2024": 2,
+        "2025": 1
+    },
+    "citationCount": 7,
+    "venue": {
+        "name": "arXiv.org",
+        "type": null,
+        "ranking": null
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 20,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 81,
+            "citationCount": 2,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 51,
+            "citationCount": 9,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 130,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 5,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 30,
+            "citationCount": 75,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 12,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 175,
+            "citationCount": 1236,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 19,
+            "citationCount": 179,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 25,
+            "citationCount": 7658,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

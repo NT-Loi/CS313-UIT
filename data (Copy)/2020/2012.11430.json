@@ -1,0 +1,193 @@
+{
+    "arxiv_id": "2012.11430",
+    "title": "Parallel Prony's method with multivariate matrix pencil approach and its numerical aspect",
+    "authors": [
+        {
+            "name": "N Bosner",
+            "citations_all": 152,
+            "citations_recent": 39,
+            "h_index_all": 6,
+            "h_index_recent": 4,
+            "i10_index_all": 5,
+            "i10_index_recent": 0
+        }
+    ],
+    "abstract": "Prony's method is a standard tool exploited for solving many imaging and data analysis problems that result in parameter identification in sparse exponential sums $$f(k)=\\sum_{j=1}^{T}c_{j}e^{-2\\pi i\\langle t_{j},k\\rangle},\\quad k\\in \\mathbb{Z}^{d},$$ where the parameters are pairwise different $\\{ t_{j}\\}_{j=1}^{M}\\subset [0,1)^{d}$, and $\\{ c_{j}\\}_{j=1}^{M}\\subset \\mathbb{C}\\setminus \\{ 0\\}$ are nonzero. The focus of our investigation is on a Prony's method variant based on a multivariate matrix pencil approach. The method constructs matrices $S_{1}$, \\ldots , $S_{d}$ from the sampling values, and their simultaneous diagonalization yields the parameters $\\{ t_{j}\\}_{j=1}^{M}$. The parameters $\\{ c_{j}\\}_{j=1}^{M}$ are computed as the solution of an linear least squares problem, where the matrix of the problem is determined by $\\{ t_{j}\\}_{j=1}^{M}$. Since the method involves independent generation and manipulation of certain number of matrices, there is intrinsic capacity for parallelization of the whole computation process on several levels. Hence, we propose parallel version of the Prony's method in order to increase its efficiency. The tasks concerning generation of matrices is divided among GPU's block of threads and CPU, where heavier load is put on the GPU. From the algorithmic point of view, the CPU is dedicated to the more complex tasks. With careful choice of algorithms solving the subtasks, the load between CPU and GPU is balanced. Besides the parallelization techniques, we are also concerned with some numerical issues, and we provide detailed numerical analysis of the method in case of noisy input data. Finally, we performed a set of numerical tests which confirm superior efficiency of the parallel algorithm and consistency of the forward error with the results of numerical analysis.",
+    "published_date": "2020-12-21T00:00:00",
+    "last_revised_date": "2020-12-21T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2012.11430.pdf",
+    "primary_category": "Numerical Analysis (math.NA)",
+    "categories": [
+        "Numerical Analysis (math.NA)",
+        "Distributed, Parallel, and Cluster Computing (cs.DC)"
+    ],
+    "keywords": null,
+    "num_pages": 22,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2022": 1,
+        "2023": 1
+    },
+    "citationCount": 2,
+    "venue": {
+        "name": "SIAM Journal on Matrix Analysis and Applications",
+        "type": "journal",
+        "ranking": "Q1"
+    },
+    "citations": [],
+    "referenceCount": 28,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 22,
+            "citationCount": 12,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 49,
+            "citationCount": 58,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 15,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 77,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 8,
+            "citationCount": 34,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 39,
+            "citationCount": 30,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 30,
+            "citationCount": 123,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 24,
+            "citationCount": 136,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 18,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 171,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 1,
+            "citationCount": 322,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 49,
+            "citationCount": 101,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 21,
+            "citationCount": 219,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 27,
+            "citationCount": 1609,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 7,
+            "citationCount": 14095,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 6,
+            "citationCount": 122,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 5,
+            "citationCount": 534,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 5,
+            "citationCount": 13398,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 1493,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 2461,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 8407,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

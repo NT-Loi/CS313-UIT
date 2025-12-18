@@ -1,0 +1,227 @@
+{
+    "arxiv_id": "1712.04564",
+    "title": "Approximate Convex Hull of Data Streams",
+    "authors": [
+        {
+            "name": "A Blum",
+            "citations_all": 44193,
+            "citations_recent": 12852,
+            "h_index_all": 83,
+            "h_index_recent": 49,
+            "i10_index_all": 185,
+            "i10_index_recent": 130
+        },
+        {
+            "name": "V Braverman",
+            "citations_all": 6934,
+            "citations_recent": 5638,
+            "h_index_all": 40,
+            "h_index_recent": 37,
+            "i10_index_all": 102,
+            "i10_index_recent": 90
+        },
+        {
+            "name": "A Kumar",
+            "citations_all": 16549,
+            "citations_recent": 16494,
+            "h_index_all": 23,
+            "h_index_recent": 23,
+            "i10_index_all": 27,
+            "i10_index_recent": 27
+        },
+        {
+            "name": "H Lang",
+            "citations_all": 5147,
+            "citations_recent": 4758,
+            "h_index_all": 33,
+            "h_index_recent": 30,
+            "i10_index_all": 75,
+            "i10_index_recent": 70
+        },
+        {
+            "name": "LF Yang",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        }
+    ],
+    "abstract": "Given a finite set of points $P \\subseteq \\mathbb{R}^d$, we would like to find a small subset $S \\subseteq P$ such that the convex hull of $S$ approximately contains $P$. More formally, every point in $P$ is within distance $\\epsilon$ from the convex hull of $S$. Such a subset $S$ is called an $\\epsilon$-hull. Computing an $\\epsilon$-hull is an important problem in computational geometry, machine learning, and approximation algorithms.\nIn many real world applications, the set $P$ is too large to fit in memory. We consider the streaming model where the algorithm receives the points of $P$ sequentially and strives to use a minimal amount of memory. Existing streaming algorithms for computing an $\\epsilon$-hull require $O(\\epsilon^{-(d-1)/2})$ space, which is optimal for a worst-case input. However, this ignores the structure of the data. The minimal size of an $\\epsilon$-hull of $P$, which we denote by $\\text{OPT}$, can be much smaller. A natural question is whether a streaming algorithm can compute an $\\epsilon$-hull using only $O(\\text{OPT})$ space.\nWe begin with lower bounds that show that it is not possible to have a single-pass streaming algorithm that computes an $\\epsilon$-hull with $O(\\text{OPT})$ space. We instead propose three relaxations of the problem for which we can compute $\\epsilon$-hulls using space near-linear to the optimal size. Our first algorithm for points in $\\mathbb{R}^2$ that arrive in random-order uses $O(\\log n\\cdot \\text{OPT})$ space. Our second algorithm for points in $\\mathbb{R}^2$ makes $O(\\log(\\frac{1}{\\epsilon}))$ passes before outputting the $\\epsilon$-hull and requires $O(\\text{OPT})$ space. Our third algorithm for points in $\\mathbb{R}^d$ for any fixed dimension $d$ outputs an $\\epsilon$-hull for all but $\\delta$-fraction of directions and requires $O(\\text{OPT} \\cdot \\log \\text{OPT})$ space.",
+    "published_date": "2017-12-12T00:00:00",
+    "last_revised_date": "2017-12-14T00:00:00",
+    "num_revisions": 1,
+    "pdf_url": "https://arxiv.org/pdf/1712.04564.pdf",
+    "primary_category": "Computational Geometry (cs.CG)",
+    "categories": [
+        "Computational Geometry (cs.CG)"
+    ],
+    "keywords": null,
+    "num_pages": 19,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {
+        "2019": 2,
+        "2021": 3,
+        "2022": 2,
+        "2023": 1,
+        "2024": 2,
+        "2025": 1
+    },
+    "citationCount": 11,
+    "venue": {
+        "name": "International Colloquium on Automata, Languages and Programming",
+        "type": "conference",
+        "ranking": "A"
+    },
+    "citations": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 20,
+            "citationCount": 3,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 113,
+            "citationCount": 16,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 58,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 48,
+            "citationCount": 11,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 0,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 55,
+            "citationCount": 5,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 36,
+            "citationCount": 27,
+            "influentialCitationCount": null
+        }
+    ],
+    "referenceCount": 16,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 11,
+            "citationCount": 21282,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 16,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 8,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 20,
+            "citationCount": 35,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 42,
+            "citationCount": 6390,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 15,
+            "citationCount": 13,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 32,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 23,
+            "citationCount": 32,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 46,
+            "citationCount": 382,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 31,
+            "citationCount": 59,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 38,
+            "citationCount": 153,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 22,
+            "citationCount": 107,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 76,
+            "citationCount": 424,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 11,
+            "citationCount": 110,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}

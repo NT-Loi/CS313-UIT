@@ -1,0 +1,325 @@
+{
+    "arxiv_id": "2112.11597",
+    "title": "Rightsizing Clusters for Time-Limited Tasks",
+    "authors": [
+        {
+            "name": "VT Chakaravarthy",
+            "citations_all": 2210,
+            "citations_recent": 887,
+            "h_index_all": 25,
+            "h_index_recent": 15,
+            "i10_index_all": 43,
+            "i10_index_recent": 22
+        },
+        {
+            "name": "PV Seshadri",
+            "citations_all": 403,
+            "citations_recent": 245,
+            "h_index_all": 10,
+            "h_index_recent": 9,
+            "i10_index_all": 10,
+            "i10_index_recent": 7
+        },
+        {
+            "name": "P Aggarwal",
+            "citations_all": 543,
+            "citations_recent": 479,
+            "h_index_all": 12,
+            "h_index_recent": 11,
+            "i10_index_all": 17,
+            "i10_index_recent": 14
+        },
+        {
+            "name": "AR Choudhury",
+            "citations_all": 854,
+            "citations_recent": 400,
+            "h_index_all": 14,
+            "h_index_recent": 10,
+            "i10_index_all": 16,
+            "i10_index_recent": 10
+        },
+        {
+            "name": "AP Kumar",
+            "citations_all": null,
+            "citations_recent": null,
+            "h_index_all": null,
+            "h_index_recent": null,
+            "i10_index_all": null,
+            "i10_index_recent": null
+        },
+        {
+            "name": "Y Sabharwal",
+            "citations_all": 2989,
+            "citations_recent": 1225,
+            "h_index_all": 28,
+            "h_index_recent": 15,
+            "i10_index_all": 54,
+            "i10_index_recent": 29
+        }
+    ],
+    "abstract": "In conventional public clouds, designing a suitable initial cluster for a given application workload is important in reducing the computational foot-print during run-time. In edge or on-premise clouds, cold-start rightsizing the cluster at the time of installation is crucial in avoiding the recurrent capital expenditure. In both these cases, rightsizing has to balance cost-performance trade-off for a given application with multiple tasks, where each task can demand multiple resources, and the cloud offers nodes with different capacity and cost. Multidimensional bin-packing can address this cold-start rightsizing problem, but assumes that every task is always active. In contrast, real-world tasks (e.g. load bursts, batch and dead-lined tasks with time-limits) may be active only during specific time-periods or may have dynamic load profiles. The cluster cost can be reduced by reusing resources via time sharing and optimal packing. This motivates our generalized problem of cold-start rightsizing for time-limited tasks: given a timeline, time-periods and resource demands for tasks, the objective is to place the tasks on a minimum cost cluster of nodes without violating node capacities at any time instance. We design a baseline two-phase algorithm that performs penalty-based mapping of task to node-type and then, solves each node-type independently. We prove that the algorithm has an approximation ratio of O(D min(m, T)), where D, m and T are the number of resources, node-types and timeslots, respectively. We then present an improved linear programming based mapping strategy, enhanced further with a cross-node-type filling mechanism. Our experiments on synthetic and real-world cluster traces show significant cost reduction by LP-based mapping compared to the baseline, and the filling mechanism improves further to produce solutions within 20% of (a lower-bound to) the optimal solution.",
+    "published_date": "2021-12-22T00:00:00",
+    "last_revised_date": "2021-12-22T00:00:00",
+    "num_revisions": 0,
+    "pdf_url": "https://arxiv.org/pdf/2112.11597.pdf",
+    "primary_category": "Distributed, Parallel, and Cluster Computing (cs.DC)",
+    "categories": [
+        "Distributed, Parallel, and Cluster Computing (cs.DC)",
+        "Data Structures and Algorithms (cs.DS)"
+    ],
+    "keywords": null,
+    "num_pages": 11,
+    "github_stars": null,
+    "upvote": 0,
+    "citing_models": 0,
+    "citing_datasets": 0,
+    "citing_spaces": 0,
+    "citing_collections": 0,
+    "citations_by_year": {},
+    "citationCount": 0,
+    "venue": {
+        "name": "IEEE International Conference on Cloud Computing",
+        "type": "conference",
+        "ranking": "B"
+    },
+    "citations": [],
+    "referenceCount": 39,
+    "references": [
+        {
+            "arxiv_id": null,
+            "referenceCount": 95,
+            "citationCount": 67,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 133,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 30,
+            "citationCount": 15,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 60,
+            "citationCount": 27,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 24,
+            "citationCount": 16,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 56,
+            "citationCount": 114,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 310,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 29,
+            "citationCount": 26,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 34,
+            "citationCount": 45,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 263,
+            "citationCount": 555,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 24,
+            "citationCount": 689,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 49,
+            "citationCount": 124,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 33,
+            "citationCount": 322,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 358,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 21,
+            "citationCount": 246,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 32,
+            "citationCount": 43,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 17,
+            "citationCount": 339,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 13,
+            "citationCount": 28,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 391,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 21,
+            "citationCount": 166,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 12,
+            "citationCount": 123,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 40,
+            "citationCount": 45,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 13,
+            "citationCount": 7,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 18,
+            "citationCount": 42,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 18,
+            "citationCount": 18,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 28,
+            "citationCount": 267,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": 0,
+            "citationCount": 435,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        },
+        {
+            "arxiv_id": null,
+            "referenceCount": null,
+            "citationCount": null,
+            "influentialCitationCount": null
+        }
+    ],
+    "influentialCitationCount": 0,
+    "embedding": null
+}
