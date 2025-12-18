@@ -115,25 +115,23 @@ export function PaperClientView({ paper }: PaperViewProps) {
       <BackgroundParticles />
 
       <header className="flex w-full justify-center p-4 z-10 flex-shrink-0 bg-white/10 backdrop-blur-sm border-b border-white/20">
-        <div className="flex w-full max-w-5xl items-center gap-4">
-          <Link
-            href={query ? `/search?q=${encodeURIComponent(query)}` : "/search"}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full hover:bg-neutral-200/40 transition-colors"
-            title="Back to Search"
-          >
-            <ArrowLeft className="h-6 w-6 text-neutral-700" />
-          </Link>
+        <div className="flex justify-center w-full mt-8">
+          <div className="flex items-center gap-4 max-w-2xl w-full px-4">
 
-          <div className="flex-grow">
-            <SearchBar
-              defaultValue={query}
-              onSearch={handleSearch}
-              loading={false}
-              className="bg-white/80 border-neutral-300 placeholder-neutral-500 focus-visible:ring-blue-500"
-            />
+            {/* Back Button */}
+            <Link
+              href="/"
+              className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-neutral-200/40 transition-colors"
+              title="Back to Home"
+            >
+              <ArrowLeft className="w-6 h-6 text-neutral-700" />
+            </Link>
+
+            {/* Search Bar */}
+            <div className="flex-grow">
+              <SearchBar onSearch={handleSearch} />
+            </div>
           </div>
-
-          <div className="h-10 w-10 shrink-0" />
         </div>
       </header>
 
